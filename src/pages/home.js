@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const Cover = () => (
   <div style={{ display: "flex" }}>
-    <CoverPhoto image={cover} text={"Lorem ipsum"} />
+    <CoverPhoto image={cover} text={"Lorem ipsum"} type={""} />
     <div style={{ alignItems: "center", marginRight: "5%", marginLeft: "3%" }}>
       <TitleCard title="Highlights" />
       <br />
@@ -32,9 +32,15 @@ const Cover = () => (
   </div>
 );
 
-const NormalSection = ({ type }) => (
-  <div style={{ margin: "5%", display: "flex", alignItems: "flex-start" }}>
-    <TitleCard title={type} />
+const NormalSection = ({ type, endpoint }) => (
+  <div
+    style={{
+      margin: "5%",
+      display: "flex",
+      alignItems: "flex-start",
+    }}
+  >
+    <TitleCard title={type} endpoint={endpoint} />
     <StandardCard
       title="Lorem Ipsum"
       subtitle="OPINION"
@@ -64,7 +70,7 @@ const Title = styled.div`
 `;
 
 const EditorPicks = () => (
-  <div style={{ margin: "5%", display: "grid" }}>
+  <div style={{ margin: "5%" }}>
     <Title>The Editor's Picks: </Title>
     <div style={{ display: "flex" }}>
       <EditorCard
@@ -94,9 +100,9 @@ const Home = () => {
     <div>
       <Cover />
       <EditorPicks />
-      <NormalSection type="Local" />
-      <NormalSection type="National" />
-      <NormalSection type="World" />
+      <NormalSection type="Local" endpoint="local" />
+      <NormalSection type="National" endpoint="national" />
+      <NormalSection type="World" endpoint="world" />
     </div>
   );
 };

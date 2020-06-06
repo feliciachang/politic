@@ -17,15 +17,60 @@ const Navbar = () => {
       <Link to="/">
         <img style={{ width: "100px" }} src={logo} />
       </Link>
-      <Link to="/category/local">Local</Link>
-      <Link to="/category/national">National</Link>
-      <Link to="/category/world">World</Link>
-      <Link to="/category/culture">Culture</Link>
-      <Link to="/category/local">Local</Link>
-      <Link to="/category/national">National</Link>
-      <Link to="/category/world">World</Link>
-      <Link to="/category/culture">Culture</Link>
-      <Link to="/category/culture">Culture</Link>
+      <Link
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        to="/category/local"
+      >
+        Local
+      </Link>
+      <Link
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        to="/category/national"
+      >
+        National
+      </Link>
+      <Link
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        to="/category/world"
+      >
+        World
+      </Link>
+      <Link
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        to="/category/culture"
+      >
+        Culture
+      </Link>
+      <Link
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        to="/category/local"
+      >
+        Local
+      </Link>
+      <Link
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        to="/category/national"
+      >
+        National
+      </Link>
+      <Link
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        to="/category/world"
+      >
+        World
+      </Link>
+      <Link
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        to="/category/culture"
+      >
+        Culture
+      </Link>
+      <Link
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        to="/category/culture"
+      >
+        Culture
+      </Link>
     </Nav>
   );
 };

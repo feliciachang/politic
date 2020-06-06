@@ -10,6 +10,7 @@ import Navbar from "./components/navbar";
 
 import Home from "./pages/home";
 import Categories from "./pages/categories";
+import Article from "./pages/article";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -20,10 +21,8 @@ const App = () => {
       <Router>
         <Navbar />
         <Route path="/" exact component={Home} />
-        <Route path="category/local/" exact component={Categories} />
-        <Route path="category/national/" exact component={Categories} />
-        <Route path="category/world/" exact component={Categories} />
-        <Route path="category/culture/" exact component={Categories} />
+        <Route path="/category/local/" exact component={Categories} />
+        <Route path="/:article" exact component={Article} />
       </Router>
     </div>
   );

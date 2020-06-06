@@ -1,16 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import styles from "./cp.module.css";
 
-const CoverPhoto = ({ text, image }) => {
+const CoverPhoto = ({ text, image, type }) => {
+  const history = useHistory();
+  const [img, setImg] = useState();
+  const [slug, setSlug] = useState();
+
+  useEffect(() => {
+    const getCover = async () => {
+      try {
+        let response = await fetch(
+          "http://thepolitic.org/wp-json/wp/v2/posts?per_page=1"
+        );
+        response = await response.json();
+        setImg(response[0].jetpack_featured_media_url);
+        setSlug(response[0].slug);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCover();
+  }, []);
+
+  const goToArticle = () => {
+    console.log(slug);
+    history.push({ pathname: "/:articles=" + slug });
+  };
+
   return (
-    <div className={styles.imgcontainer}>
-      <img alt="" className={styles.img} src={image} />
+    <div className={styles.imgcontainer} onClick={() => goToArticle()}>
+      <img alt="" className={styles.img} src={img} />
       <div
         style={{
           position: "absolute",
           bottom: "0",
           left: "10%",
-          right: "10%",
+          right: "0",
         }}
       >
         <div
@@ -22,16 +48,17 @@ const CoverPhoto = ({ text, image }) => {
             width: "15%",
           }}
         >
-          THE LATEST
+          {type}
         </div>
         <div
           style={{
             right: 0,
-            fontSize: "9vw",
+            fontSize: "7vw",
             fontWeight: "bold",
             textAlign: "left",
             backgroundColor: "#fff",
             opacity: "50%",
+            fontFamily: "Merriweather",
           }}
         >
           {text}
@@ -41,4 +68,4 @@ const CoverPhoto = ({ text, image }) => {
   );
 };
 
-export default CoverPhoto;
+export default withRouter(CoverPhoto);
