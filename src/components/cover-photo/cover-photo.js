@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
 import styles from "./cp.module.css";
 
-const CoverPhoto = ({ text, image, type }) => {
+const CoverPhoto = ({ type }) => {
   const history = useHistory();
   const [img, setImg] = useState();
+  const [text, setText] = useState();
   const [slug, setSlug] = useState();
 
   useEffect(() => {
@@ -15,6 +16,7 @@ const CoverPhoto = ({ text, image, type }) => {
         );
         response = await response.json();
         setImg(response[0].jetpack_featured_media_url);
+        setText(response[0].title.rendered);
         setSlug(response[0].slug);
       } catch (error) {
         console.log(error);
@@ -53,11 +55,11 @@ const CoverPhoto = ({ text, image, type }) => {
         <div
           style={{
             right: 0,
-            fontSize: "7vw",
+            fontSize: "6vw",
             fontWeight: "bold",
             textAlign: "left",
             backgroundColor: "#fff",
-            opacity: "50%",
+            opacity: "70%",
             fontFamily: "Merriweather",
           }}
         >

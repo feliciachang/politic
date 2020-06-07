@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CoverPhoto from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
 import ContentCard from "../components/content-card";
@@ -7,30 +7,60 @@ import StandardCard from "../components/standard-card";
 import cover from "../assets/cover.png";
 import styled from "styled-components";
 
-const Cover = () => (
-  <div style={{ display: "flex" }}>
-    <CoverPhoto image={cover} text={"Lorem ipsum"} type={""} />
-    <div style={{ alignItems: "center", marginRight: "5%", marginLeft: "3%" }}>
-      <TitleCard title="Highlights" />
-      <br />
-      <ContentCard
-        title="Lorem Ipsum"
-        subtitle="OPINION"
-        text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia"
-      />
-      <ContentCard
-        title="Lorem Ipsum"
-        subtitle="OPINION"
-        text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia"
-      />
-      <ContentCard
-        title="Lorem Ipsum"
-        subtitle="OPINION"
-        text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia"
-      />
+const Cover = () => {
+  const [highlights, setHighlights] = useState(null);
+
+  useEffect(() => {
+    const getHighlights = async () => {
+      try {
+        let response = await fetch(
+          "http://thepolitic.org/wp-json/wp/v2/posts?per_page=4"
+        );
+        response = await response.json();
+        console.log(response);
+        setHighlights(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getHighlights();
+  }, []);
+
+  console.log(highlights);
+
+  return (
+    <div style={{ display: "flex" }}>
+      <CoverPhoto image={cover} text={"Lorem ipsum"} type={""} />
+      <div
+        style={{ alignItems: "center", marginRight: "5%", marginLeft: "3%" }}
+      >
+        <TitleCard title="Highlights" />
+        <br />
+        {highlights === null ? (
+          <div />
+        ) : (
+          <div>
+            <ContentCard
+              title={highlights[1].title.rendered}
+              subtitle="OPINION"
+              text={highlights[1].excerpt.rendered}
+            />
+            <ContentCard
+              title={highlights[2].title.rendered}
+              subtitle="OPINION"
+              text={highlights[2].excerpt.rendered}
+            />
+            <ContentCard
+              title={highlights[3].title.rendered}
+              subtitle="OPINION"
+              text={highlights[3].excerpt.rendered}
+            />
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const NormalSection = ({ type, endpoint }) => (
   <div

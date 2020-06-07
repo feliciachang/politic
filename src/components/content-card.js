@@ -11,16 +11,25 @@ const Title = styled.div`
   font-family: Roboto Slab;
 `;
 
-const Text = styled.div`
-  font-size: 12px;
-`;
-
 const ContentCard = ({ title, subtitle, text }) => {
   return (
-    <div style={{ padding: "10px", paddingLeft: "20px" }}>
+    <div
+      style={{
+        padding: "10px",
+        paddingLeft: "20px",
+        moxWidth: "200px",
+        width: "300px",
+      }}
+    >
       <Subtitle>{subtitle}</Subtitle>
       <Title>{title}</Title>
-      <Text>{text}</Text>
+      <div
+        style={{
+          fontFamily: "Inter",
+          fontSize: "12px",
+        }}
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
     </div>
   );
 };
