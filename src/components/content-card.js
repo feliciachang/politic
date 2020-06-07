@@ -7,7 +7,7 @@ const Subtitle = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 20px;
+  font-size: 17px;
   font-family: Roboto Slab;
 `;
 

@@ -8,7 +8,7 @@ const Subtitle = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 20px;
+  font-size: 17px;
   font-family: Roboto Slab;
 `;
 
@@ -24,14 +24,19 @@ const ImgContainer = styled.div`
   height: 100px;
 `;
 
-const CategoryCard = ({ title, subtitle, text, image }) => {
+const CategoryCard = ({ title, text, image }) => {
   return (
     <div style={{ paddingLeft: "20px", display: "flex", marginBottom: "3%" }}>
       <div style={{ paddingRight: "2%", width: "100%" }}>
         <hr />
-        <Subtitle>{subtitle}</Subtitle>
         <Title>{title}</Title>
-        <Text>{text}</Text>
+        <div
+          style={{
+            fontFamily: "Inter",
+            fontSize: "12px",
+          }}
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
       </div>
       <ImgContainer>
         <img

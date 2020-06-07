@@ -21,7 +21,7 @@ const App = () => {
       <Router>
         <Navbar />
         <Route path="/" exact component={Home} />
-        <Route path="/category/local/" exact component={Categories} />
+        <Route path="/category/:id" exact component={Categories} />
         <Route path="/:article" exact component={Article} />
       </Router>
     </div>

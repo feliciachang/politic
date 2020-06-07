@@ -14,63 +14,63 @@ const Nav = styled.div`
 const Navbar = () => {
   return (
     <Nav>
-      <Link to="/">
+      <a href="/">
         <img style={{ width: "100px" }} src={logo} />
-      </Link>
-      <Link
+      </a>
+      <a
         style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
-        to="/category/local"
+        href="/category/:id=2317"
       >
         Local
-      </Link>
-      <Link
+      </a>
+      <a
         style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
-        to="/category/national"
+        href="/category/:id=3"
       >
         National
-      </Link>
-      <Link
+      </a>
+      <a
         style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
-        to="/category/world"
+        href="/category/:id=7"
       >
         World
-      </Link>
-      <Link
+      </a>
+      <a
         style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
-        to="/category/culture"
-      >
-        Culture
-      </Link>
-      <Link
-        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
-        to="/category/local"
+        href="/category/:id=2317"
       >
         Local
-      </Link>
-      <Link
+      </a>
+      <a
         style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
-        to="/category/national"
+        href="/category/:id=3"
       >
         National
-      </Link>
-      <Link
+      </a>
+      <a
         style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
-        to="/category/world"
+        href="/category/:id=7"
       >
         World
-      </Link>
-      <Link
+      </a>
+      <a
         style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
-        to="/category/culture"
+        href="/category/:id=2317"
       >
-        Culture
-      </Link>
-      <Link
+        Local
+      </a>
+      <a
         style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
-        to="/category/culture"
+        href="/category/:id=3"
       >
-        Culture
-      </Link>
+        National
+      </a>
+      <a
+        style={{ color: "black", textDecoration: "none", fontSize: "15px" }}
+        href="/category/:id=7"
+      >
+        World
+      </a>
     </Nav>
   );
 };

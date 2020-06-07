@@ -8,7 +8,7 @@ const Subtitle = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 20px;
+  font-size: 15px;
   font-family: Roboto Slab;
 `;
 
@@ -23,12 +23,13 @@ const ImgContainer = styled.div`
   padding-bottom: 10px;
 `;
 
-const ContentCard = ({ title, subtitle, text, image }) => {
+const ContentCard = ({ title, subtitle, image }) => {
   return (
     <div
       style={{
         padding: "0px 10px 10px 10px",
         paddingLeft: "20px",
+        width: "25vw",
       }}
     >
       <ImgContainer>
@@ -38,7 +39,6 @@ const ContentCard = ({ title, subtitle, text, image }) => {
         />
       </ImgContainer>
       <Title>{title}</Title>
-      <Text>{text}</Text>
     </div>
   );
 };

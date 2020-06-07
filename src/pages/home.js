@@ -62,35 +62,55 @@ const Cover = () => {
   );
 };
 
-const NormalSection = ({ type, endpoint }) => (
-  <div
-    style={{
-      margin: "5%",
-      display: "flex",
-      alignItems: "flex-start",
-    }}
-  >
-    <TitleCard title={type} endpoint={endpoint} />
-    <StandardCard
-      title="Lorem Ipsum"
-      subtitle="OPINION"
-      text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia"
-      image={cover}
-    />
-    <StandardCard
-      title="Lorem Ipsum"
-      subtitle="OPINION"
-      text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia"
-      image={cover}
-    />
-    <StandardCard
-      title="Lorem Ipsum"
-      subtitle="OPINION"
-      text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia"
-      image={cover}
-    />
-  </div>
-);
+const NormalSection = ({ type, endpoint }) => {
+  const [articles, setArticles] = useState(null);
+  useEffect(() => {
+    const getArticles = async () => {
+      try {
+        let response = await fetch(endpoint);
+        response = await response.json();
+        setArticles(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getArticles();
+    console.log(articles);
+  }, []);
+
+  return (
+    <div>
+      {articles == null ? (
+        <div />
+      ) : (
+        <div
+          style={{
+            margin: "5%",
+            display: "flex",
+            alignItems: "flex-start",
+          }}
+        >
+          <TitleCard title={type} endpoint={endpoint} />
+          <StandardCard
+            title={articles[0].title.rendered}
+            subtitle="LOCAL"
+            image={articles[0].jetpack_featured_media_url}
+          />
+          <StandardCard
+            title={articles[1].title.rendered}
+            subtitle="LOCAL"
+            image={articles[1].jetpack_featured_media_url}
+          />
+          <StandardCard
+            title={articles[2].title.rendered}
+            subtitle="LOCAL"
+            image={articles[2].jetpack_featured_media_url}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Title = styled.div`
   font-size: 3vh;
@@ -130,9 +150,20 @@ const Home = () => {
     <div>
       <Cover />
       <EditorPicks />
-      <NormalSection type="Local" endpoint="local" />
-      <NormalSection type="National" endpoint="national" />
-      <NormalSection type="World" endpoint="world" />
+      <div>
+        <NormalSection
+          type="Local"
+          endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=2317"
+        />
+        <NormalSection
+          type="National"
+          endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=3"
+        />
+        <NormalSection
+          type="World"
+          endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=7"
+        />
+      </div>
     </div>
   );
 };

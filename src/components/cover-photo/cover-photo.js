@@ -2,6 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
 import styles from "./cp.module.css";
 
+export const CategoryPhoto = ({ image, slug }) => {
+  const history = useHistory();
+
+  const goToArticle = () => {
+    history.push({ pathname: "/:articles=" + slug });
+  };
+
+  return (
+    <div className={styles.imgcontainer} onClick={() => goToArticle()}>
+      <img alt="" className={styles.img} src={image} />
+    </div>
+  );
+};
+
 const CoverPhoto = ({ type }) => {
   const history = useHistory();
   const [img, setImg] = useState();
@@ -37,7 +51,7 @@ const CoverPhoto = ({ type }) => {
         style={{
           position: "absolute",
           bottom: "0",
-          left: "10%",
+          left: "15%",
           right: "0",
         }}
       >
@@ -55,12 +69,15 @@ const CoverPhoto = ({ type }) => {
         <div
           style={{
             right: 0,
-            fontSize: "6vw",
+            fontSize: "5vw",
             fontWeight: "bold",
             textAlign: "left",
             backgroundColor: "#fff",
             opacity: "70%",
             fontFamily: "Merriweather",
+            paddingLeft: "25px",
+            paddingTop: "20px",
+            paddingBOttom: "10px",
           }}
         >
           {text}
