@@ -12,7 +12,7 @@ const CoverPhoto = ({ type }) => {
     const getCover = async () => {
       try {
         let response = await fetch(
-          "http://thepolitic.org/wp-json/wp/v2/posts?per_page=1"
+          "https://thepolitic.org/wp-json/wp/v2/posts?per_page=1"
         );
         response = await response.json();
         setImg(response[0].jetpack_featured_media_url);

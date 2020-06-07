@@ -14,7 +14,7 @@ const Cover = () => {
     const getHighlights = async () => {
       try {
         let response = await fetch(
-          "http://thepolitic.org/wp-json/wp/v2/posts?per_page=4"
+          "https://thepolitic.org/wp-json/wp/v2/posts?per_page=4"
         );
         response = await response.json();
         console.log(response);

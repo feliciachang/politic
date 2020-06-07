@@ -23,7 +23,7 @@ const Article = (props) => {
       id = id.slice(10);
       try {
         let response = await fetch(
-          "http://thepolitic.org/wp-json/wp/v2/posts?slug=" + id
+          "https://thepolitic.org/wp-json/wp/v2/posts?slug=" + id
         );
         response = await response.json();
         console.log(response[0]);
