@@ -6,7 +6,7 @@ import {
   withRouter,
   Redirect,
 } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/navbar/navbar";
 
 import Home from "./pages/home";
 import Categories from "./pages/categories";

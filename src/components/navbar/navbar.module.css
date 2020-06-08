@@ -1,0 +1,60 @@
+.Header {
+  display: grid;
+  grid-template-areas: "logo nav";
+  margin-left: 5%;
+  margin-right: 5%;
+  align-items: center;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.Nav {
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  align-items: center;
+  justify-items: center;
+}
+
+.collapse {
+  display: none;
+  grid-area: collapse;
+  transition: 0.1s;
+  margin: 0 20px 0 0;
+  padding: 0;
+}
+
+@media (max-width: 700px) {
+  .Header {
+    grid-template-areas: "logo collapse" "nav nav";
+    justify-content: space-between;
+  }
+  .Nav {
+    grid-template-rows: repeat (9, auto);
+    grid-template-columns: none;
+    grid-row-gap: 20px;
+  }
+  .collapse {
+    display: inline;
+  }
+}
+
+.NavAnimation-enter {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.NavAnimation-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 350ms, transform 350ms;
+}
+.NavAnimation-exit {
+  opacity: 1;
+}
+.NavAnimation-exit-active {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 350ms, transform 350ms;
+}
