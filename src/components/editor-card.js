@@ -34,8 +34,20 @@ const EditorCard = ({ title, subtitle, text, image }) => {
       </ImgContainer>
       <br />
       <Subtitle>{subtitle}</Subtitle>
-      <Title>{title}</Title>
-      <Text>{text}</Text>
+      <div
+        style={{
+          fontFamily: "Roboto Slab",
+          fontSize: "17px",
+        }}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+      <div
+        style={{
+          fontFamily: "Noto Sans JP",
+          fontSize: "12px",
+        }}
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
     </div>
   );
 };

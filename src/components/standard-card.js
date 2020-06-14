@@ -38,7 +38,13 @@ const ContentCard = ({ title, subtitle, image }) => {
           style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
       </ImgContainer>
-      <Title>{title}</Title>
+      <div
+        style={{
+          fontFamily: "Roboto Slab",
+          fontSize: "15px",
+        }}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
     </div>
   );
 };

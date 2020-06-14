@@ -7,16 +7,6 @@ const Subtitle = styled.div`
   font-family: Noto Sans JP;
 `;
 
-const Title = styled.div`
-  font-size: 17px;
-  font-family: Roboto Slab;
-`;
-
-const Text = styled.div`
-  font-size: 12px;
-  font-family: Noto Sans JP;
-`;
-
 const ImgContainer = styled.div`
   padding-top: 10px;
   position: relative;
@@ -29,7 +19,13 @@ const CategoryCard = ({ title, text, image }) => {
     <div style={{ paddingLeft: "20px", display: "flex", marginBottom: "3%" }}>
       <div style={{ paddingRight: "2%", width: "100%" }}>
         <hr />
-        <Title>{title}</Title>
+        <div
+          style={{
+            fontFamily: "Roboto Slab",
+            fontSize: "17px",
+          }}
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
         <div
           style={{
             fontFamily: "Inter",

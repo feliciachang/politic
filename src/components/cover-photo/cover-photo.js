@@ -79,9 +79,8 @@ const CoverPhoto = ({ type }) => {
             paddingTop: "20px",
             paddingBOttom: "10px",
           }}
-        >
-          {text}
-        </div>
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
       </div>
     </div>
   );

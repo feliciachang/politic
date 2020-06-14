@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import styles from "./navbar.module.css";
 import { CSSTransition } from "react-transition-group";
+import { AboutNav, MultimediaNav, InterviewsNav } from "./navbar-sub";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(true);
@@ -109,39 +110,9 @@ const Navbar = () => {
           >
             Tech
           </a>
-          <a
-            style={{
-              color: "black",
-              textDecoration: "none",
-              fontSize: "15px",
-              marginRight: "10px",
-            }}
-            href="/category/:id=2317"
-          >
-            Interviews
-          </a>
-          <a
-            style={{
-              color: "black",
-              textDecoration: "none",
-              fontSize: "15px",
-              marginRight: "10px",
-            }}
-            href="/category/:id=3"
-          >
-            Multimedia
-          </a>
-          <a
-            style={{
-              color: "black",
-              textDecoration: "none",
-              fontSize: "15px",
-              marginRight: "10px",
-            }}
-            href="/category/:id=7"
-          >
-            About
-          </a>
+          <InterviewsNav />
+          <MultimediaNav />
+          <AboutNav />
         </div>
       </CSSTransition>
       <svg

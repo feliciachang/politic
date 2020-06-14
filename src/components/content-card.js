@@ -6,11 +6,6 @@ const Subtitle = styled.div`
   font-weight: bold;
 `;
 
-const Title = styled.div`
-  font-size: 17px;
-  font-family: Roboto Slab;
-`;
-
 const ContentCard = ({ title, subtitle, text }) => {
   return (
     <div
@@ -22,7 +17,13 @@ const ContentCard = ({ title, subtitle, text }) => {
       }}
     >
       <Subtitle>{subtitle}</Subtitle>
-      <Title>{title}</Title>
+      <div
+        style={{
+          fontFamily: "Roboto Slab",
+          fontSize: "17px",
+        }}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
       <div
         style={{
           fontFamily: "Inter",
