@@ -4,6 +4,7 @@ import TitleCard from "../components/title-card";
 import ContentCard from "../components/content-card";
 import EditorCard from "../components/editor-card";
 import StandardCard from "../components/standard-card";
+import Mailchimp from "../components/subscribe";
 import cover from "../assets/cover.png";
 import styled from "styled-components";
 
@@ -29,7 +30,7 @@ const Cover = () => {
   console.log(highlights);
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
       <CoverPhoto image={cover} text={"Lorem ipsum"} type={""} />
       <div
         style={{ alignItems: "center", marginRight: "5%", marginLeft: "3%" }}
@@ -64,18 +65,32 @@ const Cover = () => {
 
 const NormalSection = ({ type, endpoint }) => {
   const [articles, setArticles] = useState(null);
+  const [authors, setAuthors] = useState(null);
   useEffect(() => {
     const getArticles = async () => {
       try {
-        let response = await fetch(endpoint);
+        let response;
+        response = await fetch(endpoint);
         response = await response.json();
         setArticles(response);
       } catch (error) {
         console.log(error);
       }
     };
+    const getAuthors = async () => {
+      let authorgrp = [];
+      for (let i = 0; i < 3; i++) {
+        let littleArray = [];
+        for (let j = 0; j < articles[i]._links.author.length; j++) {
+          let author = await fetch(articles[i]._links.author[j].href);
+          author = await author.json();
+          littleArray.push(author);
+        }
+        authorgrp.push(littleArray);
+      }
+      setAuthors(authorgrp);
+    };
     getArticles();
-    console.log(articles);
   }, []);
 
   return (
@@ -164,6 +179,7 @@ const Home = () => {
           endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=7"
         />
       </div>
+      <Mailchimp />
     </div>
   );
 };

@@ -21,9 +21,9 @@ const Cover = ({ content }) => (
   </div>
 );
 
-const Content = ({ content }) => (
+const Content = ({ content, type }) => (
   <div style={{ display: "flex", alignItems: "flex-start" }}>
-    <TitleCard title={"Local"} />
+    <TitleCard title={type} />
     <div style={{ marginRight: "5%", marginLeft: "3%" }}>
       {content.map((c, i) => (
         <CategoryCard
@@ -39,12 +39,35 @@ const Content = ({ content }) => (
 
 const Categories = (props) => {
   const [category, setCategory] = useState(null);
+  const [type, setType] = useState(null);
 
   useEffect(() => {
     const getCategory = async () => {
       let id = props.match.params.id;
       id = id.slice(4);
-      console.log(id);
+      switch (id) {
+        case "2317":
+          setType("Local");
+          break;
+        case "3":
+          setType("National");
+          break;
+        case "7":
+          setType("World");
+          break;
+        case "2853":
+          setType("Culture");
+          break;
+        case "957":
+          setType("Experts Of");
+          break;
+        case "4291":
+          setType("Voices Of");
+          break;
+        case "4284":
+          setType("The Sophist");
+          break;
+      }
       let endpoint =
         "https://thepolitic.org/wp-json/wp/v2/posts?categories=" + id;
       try {
@@ -69,7 +92,7 @@ const Categories = (props) => {
         <div>
           <Cover content={category[0]} />
           <div style={{ margin: "5%" }}>
-            <Content content={category.slice(1)} />
+            <Content content={category.slice(1)} type={type} />
           </div>
         </div>
       )}

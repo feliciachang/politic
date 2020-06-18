@@ -45,39 +45,27 @@ const CoverPhoto = ({ type }) => {
   };
 
   return (
-    <div className={styles.imgcontainer} onClick={() => goToArticle()}>
-      <img alt="" className={styles.img} src={img} />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "0",
-          left: "15%",
-          right: "0",
-        }}
-      >
+    <div style={{ cursor: "pointer", width: "100%" }}>
+      <div className={styles.imgcontainer} onClick={() => goToArticle()}>
+        <img alt="" className={styles.img} src={img} />
+      </div>
+      <div style={{ marginLeft: "10%", marginTop: "3%", marginRight: "2%" }}>
         <div
           style={{
-            fontSize: "1.3vw",
+            fontSize: "10px",
             fontWeight: "bold",
-            color: "white",
-            padding: "3px 10px 3px 3px",
-            width: "15%",
+            fontFamily: "Noto Sans JP",
+            marginTop: "3%",
+            marginBottom: "1%",
           }}
-        >
-          {type}
-        </div>
+          dangerouslySetInnerHTML={{ __html: "COVER STORY" }}
+        />
+      </div>
+      <div style={{ marginLeft: "10%", marginRight: "2%" }}>
         <div
           style={{
-            right: 0,
-            fontSize: "5vw",
-            fontWeight: "bold",
-            textAlign: "left",
-            backgroundColor: "#fff",
-            opacity: "70%",
             fontFamily: "Merriweather",
-            paddingLeft: "25px",
-            paddingTop: "20px",
-            paddingBOttom: "10px",
+            fontSize: "30px",
           }}
           dangerouslySetInnerHTML={{ __html: text }}
         />

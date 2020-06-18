@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import styles from "./navbar.module.css";
 import { CSSTransition } from "react-transition-group";
-import { AboutNav, MultimediaNav, InterviewsNav } from "./navbar-sub";
+import {
+  AboutNav,
+  MultimediaNav,
+  InterviewsNav,
+  OpinionNav,
+} from "./navbar-sub";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(true);
@@ -50,6 +55,7 @@ const Navbar = () => {
               textDecoration: "none",
               fontSize: "15px",
               marginRight: "10px",
+              marginTop: "7px",
             }}
             href="/category/:id=2317"
           >
@@ -61,6 +67,7 @@ const Navbar = () => {
               textDecoration: "none",
               fontSize: "15px",
               marginRight: "10px",
+              marginTop: "7px",
             }}
             href="/category/:id=3"
           >
@@ -72,6 +79,7 @@ const Navbar = () => {
               textDecoration: "none",
               fontSize: "15px",
               marginRight: "10px",
+              marginTop: "7px",
             }}
             href="/category/:id=7"
           >
@@ -83,33 +91,13 @@ const Navbar = () => {
               textDecoration: "none",
               fontSize: "15px",
               marginRight: "10px",
+              marginTop: "7px",
             }}
             href="/category/:id=2853"
           >
             Culture
           </a>
-          <a
-            style={{
-              color: "black",
-              textDecoration: "none",
-              fontSize: "15px",
-              marginRight: "10px",
-            }}
-            href="/category/:id=3"
-          >
-            Opinion
-          </a>
-          <a
-            style={{
-              color: "black",
-              textDecoration: "none",
-              fontSize: "15px",
-              marginRight: "10px",
-            }}
-            href="/category/:id=7"
-          >
-            Tech
-          </a>
+          <OpinionNav />
           <InterviewsNav />
           <MultimediaNav />
           <AboutNav />

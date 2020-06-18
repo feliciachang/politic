@@ -13,14 +13,14 @@ const ContentCard = ({ title, subtitle, text }) => {
         padding: "10px",
         paddingLeft: "20px",
         moxWidth: "200px",
-        width: "300px",
+        width: "200px",
       }}
     >
       <Subtitle>{subtitle}</Subtitle>
       <div
         style={{
           fontFamily: "Roboto Slab",
-          fontSize: "17px",
+          fontSize: "15px",
         }}
         dangerouslySetInnerHTML={{ __html: title }}
       />

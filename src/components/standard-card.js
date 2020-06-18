@@ -23,7 +23,13 @@ const ImgContainer = styled.div`
   padding-bottom: 10px;
 `;
 
-const ContentCard = ({ title, subtitle, image }) => {
+const Author = styled.div`
+  font-size: 10px;
+  font-weight: bold;
+  font-family: Noto Sans JP;
+`;
+
+const ContentCard = ({ title, subtitle, image, author }) => {
   return (
     <div
       style={{
@@ -42,6 +48,7 @@ const ContentCard = ({ title, subtitle, image }) => {
         style={{
           fontFamily: "Roboto Slab",
           fontSize: "15px",
+          padding: "5px",
         }}
         dangerouslySetInnerHTML={{ __html: title }}
       />

@@ -1,4 +1,12 @@
 import React, { useEffect, useState } from "react";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  EmailIcon,
+} from "react-share";
 import styled from "styled-components";
 
 const ImgContainer = styled.div`
@@ -16,11 +24,14 @@ const Img = styled.img`
 
 const Article = (props) => {
   const [article, setArticle] = useState(null);
+  const [author, setAuthor] = useState(null);
+  const [id, setId] = useState(null);
 
   useEffect(() => {
     const getCover = async () => {
       let id = props.match.params.article;
       id = id.slice(10);
+      setId(id);
       try {
         let response = await fetch(
           "https://thepolitic.org/wp-json/wp/v2/posts?slug=" + id
@@ -32,7 +43,18 @@ const Article = (props) => {
         console.log(error);
       }
     };
+    // const getAuthors = async () => {
+    //   let authorgrp = [];
+    //   for (let j = 0; j < article._links.author.length; j++) {
+    //     let author = await fetch(article._links.author[j].href);
+    //     author = await author.json();
+    //     authorgrp.push(author);
+    //   }
+    //   setAuthor(authorgrp);
+    // };
+
     getCover();
+    // getAuthors();
   }, []);
   return (
     <div>
@@ -47,15 +69,34 @@ const Article = (props) => {
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               marginLeft: "10%",
               marginRight: "15%",
               marginTop: "5%",
               flexDirection: "row",
             }}
           >
-            <div> social media </div>
-            <div style={{ marginLeft: "10%" }}>
+            <div
+              style={{
+                marginTop: "25px",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <FacebookShareButton
+                url={"http://thepolitic.org/:articles=" + id}
+              >
+                <FacebookIcon size={32} round={true} />
+              </FacebookShareButton>
+
+              <TwitterShareButton url={"http://thepolitic.org/:articles=" + id}>
+                <TwitterIcon size={32} round={true} />
+              </TwitterShareButton>
+              <EmailShareButton url={"http://thepolitic.org/:articles=" + id}>
+                <EmailIcon size={32} round={true} />
+              </EmailShareButton>
+            </div>
+            <div style={{ marginLeft: "10%", maxWidth: "500px" }}>
               <h1 style={{ fontFamily: "Merriweather" }}>
                 {article.title.rendered}
               </h1>

@@ -2,21 +2,26 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Item = styled.a`
-  color: black;
-  text-decoration: none;
-  font-size: 15px;
-  margin-right: 10px;
+const Item = styled.div`
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: ${(props) => (props.primary ? "Montaga" : "Poppins")};
+  font-size: ${(props) => (props.primary ? "3vh" : "1.7vh")};
   cursor: pointer;
+  :hover {
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+  }
 `;
 
 const DropdownContent = styled.div`
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
-  max-width: 160px;
-  width: 160px;
+  min-width: 140px;
+  max-width: 140px;
+  width: 140px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 10px;
   margin-left: -10px;
@@ -30,7 +35,6 @@ const Dropdown = styled.div`
   display: "flex";
   margin-top: 7px;
 `;
-
 export const AboutNav = () => {
   return (
     <div>
@@ -117,8 +121,75 @@ export const InterviewsNav = () => {
           </svg>
         </div>
         <DropdownContent>
-          <Item href="/category/id=podcasts">Experts Of</Item>
-          <Item href="/category/id=documentary">Voices Of</Item>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "13px",
+                marginRight: "10px",
+                marginTop: "7px",
+              }}
+              href="/category/:id=957"
+            >
+              Experts Of
+            </a>
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "13px",
+                marginRight: "10px",
+                marginTop: "7px",
+              }}
+              href="/category/:id=4291"
+            >
+              Voices Of
+            </a>
+          </div>
+        </DropdownContent>
+      </Dropdown>
+    </div>
+  );
+};
+
+export const OpinionNav = () => {
+  return (
+    <div>
+      <Dropdown>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            fontSize: "15px",
+          }}
+        >
+          Opinion
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M7 10l5 5 5-5z" />
+          </svg>
+        </div>
+        <DropdownContent>
+          <Item href="/category/id=podcasts">Columnists</Item>
+
+          <a
+            style={{
+              color: "black",
+              textDecoration: "none",
+              fontSize: "13px",
+              marginRight: "10px",
+              marginTop: "7px",
+            }}
+            href="/category/:id=4284"
+          >
+            The Sophists
+          </a>
         </DropdownContent>
       </Dropdown>
     </div>
