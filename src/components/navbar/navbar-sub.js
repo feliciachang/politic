@@ -6,8 +6,8 @@ const Item = styled.div`
   margin-right: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: ${(props) => (props.primary ? "Montaga" : "Poppins")};
-  font-size: ${(props) => (props.primary ? "3vh" : "1.7vh")};
+  font-family: Noto Sans JP;
+  font-size: 12px;
   cursor: pointer;
   :hover {
     background-color: rgb(240, 240, 240);
@@ -43,7 +43,8 @@ export const AboutNav = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            fontSize: "15px",
+            fontSize: "13px",
+            fontFamily: "Noto Sans JP",
           }}
         >
           About
@@ -75,7 +76,8 @@ export const MultimediaNav = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            fontSize: "15px",
+            fontSize: "13px",
+            fontFamily: "Noto Sans JP",
           }}
         >
           Multimedia
@@ -106,7 +108,8 @@ export const InterviewsNav = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            fontSize: "15px",
+            fontSize: "13px",
+            fontFamily: "Noto Sans JP",
           }}
         >
           Interviews
@@ -161,7 +164,7 @@ export const OpinionNav = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            fontSize: "15px",
+            fontSize: "13px",
           }}
         >
           Opinion
@@ -178,18 +181,7 @@ export const OpinionNav = () => {
         <DropdownContent>
           <Item href="/category/id=podcasts">Columnists</Item>
 
-          <a
-            style={{
-              color: "black",
-              textDecoration: "none",
-              fontSize: "13px",
-              marginRight: "10px",
-              marginTop: "7px",
-            }}
-            href="/category/:id=4284"
-          >
-            The Sophists
-          </a>
+          <Item href="/category/:id=4284">The Sophists</Item>
         </DropdownContent>
       </Dropdown>
     </div>

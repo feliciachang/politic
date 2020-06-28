@@ -25,7 +25,7 @@ const ImgContainer = styled.div`
 
 const EditorCard = ({ title, subtitle, text, image }) => {
   return (
-    <div style={{ padding: "10px", paddingLeft: "20px" }}>
+    <div style={{ padding: "10px" }}>
       <ImgContainer>
         <img
           src={image}

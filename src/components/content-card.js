@@ -6,16 +6,16 @@ const Subtitle = styled.div`
   font-weight: bold;
 `;
 
+const Expandable = styled.div`
+  padding: 10px;
+  padding-left: 20px;
+  max-width: 250px;
+  width: 250px;
+`;
+
 const ContentCard = ({ title, subtitle, text }) => {
   return (
-    <div
-      style={{
-        padding: "10px",
-        paddingLeft: "20px",
-        moxWidth: "200px",
-        width: "200px",
-      }}
-    >
+    <Expandable>
       <Subtitle>{subtitle}</Subtitle>
       <div
         style={{
@@ -31,7 +31,7 @@ const ContentCard = ({ title, subtitle, text }) => {
         }}
         dangerouslySetInnerHTML={{ __html: text }}
       />
-    </div>
+    </Expandable>
   );
 };
 

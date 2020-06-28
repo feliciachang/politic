@@ -42,20 +42,16 @@ const Navbar = () => {
       <a href="/" className="Logo">
         <img style={{ width: "100px" }} src={logo} />
       </a>
-      <CSSTransition
-        in={!isSmall || visible}
-        timeout={350}
-        classNames="NavAnimation"
-        unmountOnExit
-      >
+      <CSSTransition in={!isSmall || visible} timeout={350} unmountOnExit>
         <div className={styles.Nav}>
           <a
             style={{
               color: "black",
               textDecoration: "none",
-              fontSize: "15px",
+              fontSize: "13px",
               marginRight: "10px",
               marginTop: "7px",
+              fontFamily: "Noto Sans JP",
             }}
             href="/category/:id=2317"
           >
@@ -65,9 +61,10 @@ const Navbar = () => {
             style={{
               color: "black",
               textDecoration: "none",
-              fontSize: "15px",
+              fontSize: "13px",
               marginRight: "10px",
               marginTop: "7px",
+              fontFamily: "Noto Sans JP",
             }}
             href="/category/:id=3"
           >
@@ -77,9 +74,10 @@ const Navbar = () => {
             style={{
               color: "black",
               textDecoration: "none",
-              fontSize: "15px",
+              fontSize: "13px",
               marginRight: "10px",
               marginTop: "7px",
+              fontFamily: "Noto Sans JP",
             }}
             href="/category/:id=7"
           >
@@ -89,9 +87,10 @@ const Navbar = () => {
             style={{
               color: "black",
               textDecoration: "none",
-              fontSize: "15px",
+              fontSize: "13px",
               marginRight: "10px",
               marginTop: "7px",
+              fontFamily: "Noto Sans JP",
             }}
             href="/category/:id=2853"
           >

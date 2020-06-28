@@ -8,16 +8,26 @@ const Title = styled.div`
   border: 2px solid black;
   font-weight: bold;
   font-family: Merriweather;
-  min-width: 150px;
+  min-width: ${(props) => (props.top ? "250px" : "150px")};
+  @media (max-width: 800px) {
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: center;
+  }
 `;
 
-const TitleCard = ({ title, endpoint }) => {
+const TitleCard = ({ title, endpoint, top }) => {
   let history = useHistory();
 
   const redirectTo = () => {
     history.push({ pathname: "/category/" + endpoint });
   };
-  return <Title onClick={() => redirectTo()}>{title}</Title>;
+  return (
+    <Title top={top} onClick={() => redirectTo()}>
+      {title}
+    </Title>
+  );
 };
 
 export default TitleCard;

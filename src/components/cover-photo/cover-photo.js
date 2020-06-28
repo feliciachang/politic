@@ -20,6 +20,7 @@ const CoverPhoto = ({ type }) => {
   const history = useHistory();
   const [img, setImg] = useState();
   const [text, setText] = useState();
+  const [excerpt, setExceprt] = useState();
   const [slug, setSlug] = useState();
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const CoverPhoto = ({ type }) => {
         setImg(response[0].jetpack_featured_media_url);
         setText(response[0].title.rendered);
         setSlug(response[0].slug);
+        setExceprt(response[0].excerpt.rendered);
       } catch (error) {
         console.log(error);
       }
@@ -49,7 +51,7 @@ const CoverPhoto = ({ type }) => {
       <div className={styles.imgcontainer} onClick={() => goToArticle()}>
         <img alt="" className={styles.img} src={img} />
       </div>
-      <div style={{ marginLeft: "10%", marginTop: "3%", marginRight: "2%" }}>
+      <div style={{ marginLeft: "5%", marginTop: "3%", marginRight: "2%" }}>
         <div
           style={{
             fontSize: "10px",
@@ -61,13 +63,21 @@ const CoverPhoto = ({ type }) => {
           dangerouslySetInnerHTML={{ __html: "COVER STORY" }}
         />
       </div>
-      <div style={{ marginLeft: "10%", marginRight: "2%" }}>
+      <div style={{ marginLeft: "5%", marginRight: "2%" }}>
         <div
           style={{
             fontFamily: "Merriweather",
-            fontSize: "30px",
+            fontSize: "25px",
           }}
           dangerouslySetInnerHTML={{ __html: text }}
+        />
+        <div
+          style={{
+            fontFamily: "Noto Sans JP",
+            fontSize: "12px",
+            marginRight: "5%",
+          }}
+          dangerouslySetInnerHTML={{ __html: excerpt }}
         />
       </div>
     </div>

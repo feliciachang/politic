@@ -19,7 +19,7 @@ const Text = styled.div`
 const ImgContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 200px;
   padding-bottom: 10px;
 `;
 
@@ -29,15 +29,17 @@ const Author = styled.div`
   font-family: Noto Sans JP;
 `;
 
+const Container = styled.div`
+  padding: 0px 10px 10px 10px;
+  width: 25vw;
+  @media screen and (max-width: 800px) {
+    min-width: 300px;
+  }
+`;
+
 const ContentCard = ({ title, subtitle, image, author }) => {
   return (
-    <div
-      style={{
-        padding: "0px 10px 10px 10px",
-        paddingLeft: "20px",
-        width: "25vw",
-      }}
-    >
+    <Container>
       <ImgContainer>
         <img
           src={image}
@@ -52,7 +54,16 @@ const ContentCard = ({ title, subtitle, image, author }) => {
         }}
         dangerouslySetInnerHTML={{ __html: title }}
       />
-    </div>
+      <div
+        style={{
+          fontFamily: "Noto Sans JP",
+          fontSize: "12px",
+          paddingLeft: "5px",
+          paddingRight: "5px",
+        }}
+        dangerouslySetInnerHTML={{ __html: subtitle }}
+      />
+    </Container>
   );
 };
 

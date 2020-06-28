@@ -1,6 +1,9 @@
 import React from "react";
 import logo from "../assets/white-logo.png";
 import styled from "styled-components";
+import insta from "../assets/insta.png";
+import fb from "../assets/fb.png";
+import twitter from "../assets/twitter.png";
 
 const Title = styled.div`
   font-size: 20px;
@@ -167,19 +170,19 @@ const Footer = () => {
               }}
               href="/category/:id=2317"
             >
-              Contact
+              Contact Us
             </a>
-            <a
-              style={{
-                color: "white",
-                textDecoration: "none",
-                fontSize: "15px",
-                paddingBottom: "10px",
-              }}
-              href="/category/:id=3"
-            >
-              National
-            </a>
+            <div style={{ display: "flex" }}>
+              <div style={{ width: "40px" }}>
+                <img style={{ width: "100%" }} src={fb} />
+              </div>
+              <div style={{ width: "40px" }}>
+                <img style={{ width: "100%" }} src={insta} />
+              </div>
+              <div style={{ width: "40px" }}>
+                <img style={{ width: "100%" }} src={twitter} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
