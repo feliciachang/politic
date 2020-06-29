@@ -37,10 +37,10 @@ const Article = (props) => {
           "https://thepolitic.org/wp-json/wp/v2/posts?slug=" + id
         );
         response = await response.json();
-        console.log(response[0]);
+        //console.log(response[0]);
         setArticle(response[0]);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
     // const getAuthors = async () => {

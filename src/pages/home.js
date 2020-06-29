@@ -49,16 +49,16 @@ const Cover = () => {
           "https://thepolitic.org/wp-json/wp/v2/posts?per_page=4"
         );
         response = await response.json();
-        console.log(response);
+        //console.log(response);
         setHighlights(response);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
     getHighlights();
   }, []);
 
-  console.log(highlights);
+  //console.log(highlights);
 
   return (
     <Collapsible style={{ marginTop: "0" }}>
@@ -105,7 +105,7 @@ const NormalSection = ({ type, endpoint }) => {
         response = await response.json();
         setArticles(response);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
     const getAuthors = async () => {

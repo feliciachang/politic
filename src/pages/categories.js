@@ -75,14 +75,14 @@ const Categories = (props) => {
         response = await response.json();
         setCategory(response);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
     getCategory();
-    console.log(category);
+    //console.log(category);
   }, []);
 
-  console.log(category);
+  //console.log(category);
 
   return (
     <div>

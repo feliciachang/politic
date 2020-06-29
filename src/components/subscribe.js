@@ -1,5 +1,4 @@
 import React from "react";
-import MailchimpSubscribe from "react-mailchimp-subscribe";
 import styled from "styled-components";
 import { findByLabelText } from "@testing-library/react";
 

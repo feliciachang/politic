@@ -92,7 +92,19 @@ export const MultimediaNav = () => {
           </svg>
         </div>
         <DropdownContent>
-          <Item href="/category/id=podcasts">Podcasts</Item>
+          <Item>
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
+              }}
+              href="https://soundcloud.com/user-923032759"
+            >
+              Podcasts
+            </a>
+          </Item>
           <Item href="/category/id=documentary">Documentary</Item>
         </DropdownContent>
       </Dropdown>
