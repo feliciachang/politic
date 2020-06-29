@@ -51,9 +51,9 @@
   transform: translateX(0);
   /* transition: opacity 350ms, transform 350ms; */
 }
-.NavAnimation-exit {
-  /* opacity: 1; */
-}
+/* .NavAnimation-exit {
+  opacity: 1;
+} */
 .NavAnimation-exit-active {
   /* opacity: 0; */
   display: none;

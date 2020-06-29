@@ -28,7 +28,7 @@ const Footer = () => {
         justifyContent: "space-between",
       }}
     >
-      <img style={{ width: "150px" }} src={logo} />
+      <img alt="logo" style={{ width: "150px" }} src={logo} />
       <div style={{ marginLeft: "10%", marginRight: "10%" }}>
         <Title>Read More</Title>
         <div style={{ display: "flex" }}>
@@ -174,13 +174,13 @@ const Footer = () => {
             </a>
             <div style={{ display: "flex" }}>
               <div style={{ width: "40px" }}>
-                <img style={{ width: "100%" }} src={fb} />
+                <img alt="fb" style={{ width: "100%" }} src={fb} />
               </div>
               <div style={{ width: "40px" }}>
-                <img style={{ width: "100%" }} src={insta} />
+                <img alt="insta" style={{ width: "100%" }} src={insta} />
               </div>
               <div style={{ width: "40px" }}>
-                <img style={{ width: "100%" }} src={twitter} />
+                <img alt="twitter" style={{ width: "100%" }} src={twitter} />
               </div>
             </div>
           </div>

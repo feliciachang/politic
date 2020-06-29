@@ -30,4 +30,4 @@ const TitleCard = ({ title, endpoint, top }) => {
   );
 };
 
-export default TitleCard;
+export default withRouter(TitleCard);

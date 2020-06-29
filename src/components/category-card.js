@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const Subtitle = styled.div`
-  font-size: 10px;
-  font-weight: bold;
-  font-family: Noto Sans JP;
-`;
-
 const ImgContainer = styled.div`
   padding-top: 10px;
   position: relative;
@@ -36,6 +30,7 @@ const CategoryCard = ({ title, text, image }) => {
       </div>
       <ImgContainer>
         <img
+          alt="coverphoto"
           src={image}
           style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />

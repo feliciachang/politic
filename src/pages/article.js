@@ -24,7 +24,6 @@ const Img = styled.img`
 
 const Article = (props) => {
   const [article, setArticle] = useState(null);
-  const [author, setAuthor] = useState(null);
   const [id, setId] = useState(null);
 
   useEffect(() => {
@@ -55,7 +54,7 @@ const Article = (props) => {
 
     getCover();
     // getAuthors();
-  }, []);
+  }, [props.match.params.article]);
   return (
     <div>
       {article === null ? (

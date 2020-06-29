@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import CoverPhoto from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
 import ContentCard from "../components/content-card";
@@ -96,33 +96,19 @@ const Cover = () => {
 
 const NormalSection = ({ type, endpoint }) => {
   const [articles, setArticles] = useState(null);
-  const [authors, setAuthors] = useState(null);
+  const getArticles = useCallback(async () => {
+    try {
+      let response;
+      response = await fetch(endpoint);
+      response = await response.json();
+      setArticles(response);
+    } catch (error) {
+      //console.log(error);
+    }
+  });
   useEffect(() => {
-    const getArticles = async () => {
-      try {
-        let response;
-        response = await fetch(endpoint);
-        response = await response.json();
-        setArticles(response);
-      } catch (error) {
-        //console.log(error);
-      }
-    };
-    const getAuthors = async () => {
-      let authorgrp = [];
-      for (let i = 0; i < 3; i++) {
-        let littleArray = [];
-        for (let j = 0; j < articles[i]._links.author.length; j++) {
-          let author = await fetch(articles[i]._links.author[j].href);
-          author = await author.json();
-          littleArray.push(author);
-        }
-        authorgrp.push(littleArray);
-      }
-      setAuthors(authorgrp);
-    };
     getArticles();
-  }, []);
+  }, [getArticles]);
 
   return (
     <div>
@@ -189,11 +175,11 @@ const EditorPicks = () => (
   </div>
 );
 
-const Mag = (type, endpoint) => (
-  <Collapsible>
-    <TitleCard title={type} endpoint={endpoint} />
-  </Collapsible>
-);
+// const Mag = (type, endpoint) => (
+//   <Collapsible>
+//     <TitleCard title={type} endpoint={endpoint} />
+//   </Collapsible>
+// );
 
 const Home = () => {
   return (

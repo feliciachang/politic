@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { CategoryPhoto } from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
 import ContentCard from "../components/content-card";
-import cover from "../assets/cover.png";
 import CategoryCard from "../components/category-card";
 
 const Cover = ({ content }) => (
@@ -64,7 +63,7 @@ const Categories = (props) => {
         case "4291":
           setType("Voices Of");
           break;
-        case "4284":
+        default:
           setType("The Sophist");
           break;
       }
@@ -80,7 +79,7 @@ const Categories = (props) => {
     };
     getCategory();
     //console.log(category);
-  }, []);
+  }, [props.match.params.id]);
 
   //console.log(category);
 

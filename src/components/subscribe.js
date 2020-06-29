@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { findByLabelText } from "@testing-library/react";
 
 const DisplayButtons = styled.a`
   padding: 10px 30px;

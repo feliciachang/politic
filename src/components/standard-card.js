@@ -1,32 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const Subtitle = styled.div`
-  font-size: 10px;
-  font-weight: bold;
-  padding-bottom: 5px;
-`;
-
-const Title = styled.div`
-  font-size: 15px;
-  font-family: Roboto Slab;
-`;
-
-const Text = styled.div`
-  font-size: 12px;
-`;
-
 const ImgContainer = styled.div`
   position: relative;
   width: 100%;
   height: 200px;
   padding-bottom: 10px;
-`;
-
-const Author = styled.div`
-  font-size: 10px;
-  font-weight: bold;
-  font-family: Noto Sans JP;
 `;
 
 const Container = styled.div`
@@ -37,11 +16,12 @@ const Container = styled.div`
   }
 `;
 
-const ContentCard = ({ title, subtitle, image, author }) => {
+const ContentCard = ({ title, subtitle, image }) => {
   return (
     <Container>
       <ImgContainer>
         <img
+          alt="standard"
           src={image}
           style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
