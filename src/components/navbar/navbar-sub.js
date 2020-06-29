@@ -59,8 +59,34 @@ export const AboutNav = () => {
           </svg>
         </div>
         <DropdownContent>
-          <Item href="/about/our-team">Our Team</Item>
-          <Item href="/about/our-history">Our History</Item>
+          <Item>
+            {" "}
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
+              }}
+              href="/page/id=our-team"
+            >
+              Our Team
+            </a>
+          </Item>
+          <Item>
+            {" "}
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
+              }}
+              href="/page/id=our-history"
+            >
+              Our History
+            </a>
+          </Item>
           <Item>Contact Us</Item>
         </DropdownContent>
       </Dropdown>
@@ -106,7 +132,20 @@ export const MultimediaNav = () => {
               Podcasts
             </a>
           </Item>
-          <Item href="/category/id=documentary">Documentary</Item>
+          <Item>
+            {" "}
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
+              }}
+              href="/page/id=documentary"
+            >
+              Documentary
+            </a>
+          </Item>
         </DropdownContent>
       </Dropdown>
     </div>
