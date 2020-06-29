@@ -44,6 +44,7 @@ export const AboutNav = () => {
             alignItems: "center",
             fontSize: "13px",
             fontFamily: "Noto Sans JP",
+            cursor: "pointer",
           }}
         >
           About
@@ -77,6 +78,7 @@ export const MultimediaNav = () => {
             alignItems: "center",
             fontSize: "13px",
             fontFamily: "Noto Sans JP",
+            cursor: "pointer",
           }}
         >
           Multimedia
@@ -121,6 +123,7 @@ export const InterviewsNav = () => {
             alignItems: "center",
             fontSize: "13px",
             fontFamily: "Noto Sans JP",
+            cursor: "pointer",
           }}
         >
           Interviews
@@ -135,32 +138,20 @@ export const InterviewsNav = () => {
           </svg>
         </div>
         <DropdownContent>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <Item>
             <a
               style={{
                 color: "black",
                 textDecoration: "none",
-                fontSize: "13px",
-                marginRight: "10px",
-                marginTop: "7px",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
               }}
               href="/category/:id=957"
             >
               Experts Of
             </a>
-            <a
-              style={{
-                color: "black",
-                textDecoration: "none",
-                fontSize: "13px",
-                marginRight: "10px",
-                marginTop: "7px",
-              }}
-              href="/category/:id=4291"
-            >
-              Voices Of
-            </a>
-          </div>
+          </Item>
+          <Item href="/category/:id=4291">Voices Of</Item>
         </DropdownContent>
       </Dropdown>
     </div>
