@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo.png";
 import styles from "./navbar.module.css";
 import { CSSTransition } from "react-transition-group";
@@ -13,15 +13,6 @@ const Navbar = () => {
   const [visible, setVisible] = useState(true);
   const [isSmall, setSmall] = useState(false);
 
-  const handleMediaQueryChange = useCallback((mediaQuery) => {
-    if (mediaQuery.matches) {
-      setSmall(true);
-      setVisible(!visible);
-    } else {
-      setSmall(false);
-    }
-  });
-
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 700px)");
     mediaQuery.addListener(handleMediaQueryChange);
@@ -30,9 +21,19 @@ const Navbar = () => {
     return () => {
       mediaQuery.removeListener(handleMediaQueryChange);
     };
-  }, [handleMediaQueryChange]);
+  }, []);
+
+  const handleMediaQueryChange = (mediaQuery) => {
+    if (mediaQuery.matches) {
+      setSmall(true);
+      setVisible(!visible);
+    } else {
+      setSmall(false);
+    }
+  };
 
   const toggleNav = () => {
+    console.log("toggling");
     setVisible(!visible);
   };
 
@@ -41,7 +42,12 @@ const Navbar = () => {
       <a href="/" className="Logo">
         <img alt="logo" style={{ width: "100px" }} src={logo} />
       </a>
-      <CSSTransition in={!isSmall || visible} timeout={350} unmountOnExit>
+      <CSSTransition
+        in={!isSmall || visible}
+        timeout={350}
+        classNames="NavAnimation"
+        unmountOnExit
+      >
         <div className={styles.Nav}>
           <a
             style={{
