@@ -22,6 +22,10 @@ const DisplayButtons = styled.a`
     color: ${(props) => (props.black ? "black" : "white")};
     border: ${(props) => (props.black ? "2px solid black" : "2px solid black")};
   }
+  @media (max-width: 800px) {
+    min-width: 250px;
+    width: 250px;
+  }
 `;
 
 const Flex = styled.div`
@@ -33,7 +37,9 @@ const Flex = styled.div`
   justify-content: space-between;
   align-items: "flex-start";
   @media (max-width: 800px) {
-    display: block;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 10%;
   }
 `;
 

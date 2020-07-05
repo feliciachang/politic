@@ -148,7 +148,7 @@ const Title = styled.div`
 `;
 
 const EditorPicks = () => (
-  <div style={{ margin: "5%" }}>
+  <div style={{ margin: "5%", marginBottom: "8%" }}>
     <Title>The Editor's Picks: </Title>
     <div style={{ display: "flex", alignItems: "center" }}>
       <EditorCard

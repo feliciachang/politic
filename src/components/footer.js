@@ -5,6 +5,29 @@ import insta from "../assets/insta.png";
 import fb from "../assets/fb.png";
 import twitter from "../assets/twitter.png";
 
+const Container = styled.div`
+  background-color: black;
+  color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+
+const SubContainer = styled.div`
+  margin-left: 10%;
+  margin-right: 10%;
+  @media (max-width: 800px) {
+    margin: 0px;
+    margin-bottom: 10%;
+  }
+`;
+
 const Title = styled.div`
   font-size: 20px;
   padding-bottom: 5px;
@@ -16,20 +39,9 @@ const Title = styled.div`
 
 const Footer = () => {
   return (
-    <div
-      style={{
-        backgroundColor: "black",
-        color: "white",
-        paddingLeft: "5%",
-        paddingRight: "5%",
-        paddingTop: "3%",
-        paddingBottom: "3%",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
+    <Container>
       <img alt="logo" style={{ width: "150px" }} src={logo} />
-      <div style={{ marginLeft: "10%", marginRight: "10%" }}>
+      <SubContainer>
         <Title>Read More</Title>
         <div style={{ display: "flex" }}>
           <div
@@ -149,7 +161,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-      </div>
+      </SubContainer>
       <div>
         <Title>Find US</Title>
         <div style={{ display: "flex" }}>
@@ -186,7 +198,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
