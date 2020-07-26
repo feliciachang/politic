@@ -190,7 +190,19 @@ export const InterviewsNav = () => {
               Experts Of
             </a>
           </Item>
-          <Item href="/category/:id=4291">Voices Of</Item>
+          <Item>
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
+              }}
+              href="/category/:id=4291"
+            >
+              Voices Of
+            </a>
+          </Item>
         </DropdownContent>
       </Dropdown>
     </div>
@@ -220,9 +232,33 @@ export const OpinionNav = () => {
           </svg>
         </div>
         <DropdownContent>
-          <Item href="/category/id=podcasts">Columnists</Item>
+          <Item>
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
+              }}
+              href="/page/:id=columns"
+            >
+              Columnists
+            </a>
+          </Item>
 
-          <Item href="/category/:id=4284">The Sophists</Item>
+          <Item>
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
+              }}
+              href="/category/:id=4284"
+            >
+              The Sophists
+            </a>
+          </Item>
         </DropdownContent>
       </Dropdown>
     </div>

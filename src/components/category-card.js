@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const ImgContainer = styled.div`
@@ -8,9 +9,22 @@ const ImgContainer = styled.div`
   height: 100px;
 `;
 
-const CategoryCard = ({ title, text, image }) => {
+const CategoryCard = ({ title, text, image, slug }) => {
+  let history = useHistory();
+  const goToArticle = () => {
+    history.push({ pathname: "/:articles=" + slug });
+  };
+
   return (
-    <div style={{ paddingLeft: "20px", display: "flex", marginBottom: "3%" }}>
+    <div
+      style={{
+        paddingLeft: "20px",
+        display: "flex",
+        marginBottom: "3%",
+        cursor: "pointer",
+      }}
+      onClick={goToArticle}
+    >
       <div style={{ paddingRight: "2%", width: "100%" }}>
         <hr />
         <div

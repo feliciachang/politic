@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const ImgContainer = styled.div`
@@ -11,14 +12,20 @@ const ImgContainer = styled.div`
 const Container = styled.div`
   padding: 0px 10px 10px 10px;
   width: 25vw;
+  cursor: pointer;
   @media screen and (max-width: 800px) {
     min-width: 300px;
   }
 `;
 
-const ContentCard = ({ title, subtitle, image }) => {
+const ContentCard = ({ title, subtitle, image, slug }) => {
+  let history = useHistory();
+  const goToArticle = () => {
+    history.push({ pathname: "/:articles=" + slug });
+  };
+
   return (
-    <Container>
+    <Container onClick={goToArticle}>
       <ImgContainer>
         <img
           alt="standard"

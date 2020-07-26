@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
-
-const Subtitle = styled.div`
-  font-size: 10px;
-  font-weight: bold;
-  font-family: Noto Sans JP;
-`;
 
 const ImgContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 250px;
+  padding-bottom: 10px;
 `;
 
-const EditorCard = ({ title, subtitle, text, image }) => {
+const Container = styled.div`
+  padding: 0px 20px 20px 20px;
+  width: 30vw;
+  cursor: pointer;
+  @media screen and (max-width: 800px) {
+    min-width: 300px;
+  }
+`;
+
+const EditorCard = ({ title, subtitle, text, image, slug }) => {
+  let history = useHistory();
+  const goToArticle = () => {
+    history.push({ pathname: "/:articles=" + slug });
+  };
   return (
-    <div style={{ padding: "10px" }}>
+    <Container onClick={goToArticle}>
       <ImgContainer>
         <img
           alt="editor"
@@ -24,7 +33,6 @@ const EditorCard = ({ title, subtitle, text, image }) => {
         />
       </ImgContainer>
       <br />
-      <Subtitle>{subtitle}</Subtitle>
       <div
         style={{
           fontFamily: "Roboto Slab",
@@ -34,12 +42,19 @@ const EditorCard = ({ title, subtitle, text, image }) => {
       />
       <div
         style={{
+          fontSize: "10px",
+          fontFamily: "Noto Sans JP",
+        }}
+        dangerouslySetInnerHTML={{ __html: subtitle }}
+      />
+      <div
+        style={{
           fontFamily: "Noto Sans JP",
           fontSize: "12px",
         }}
         dangerouslySetInnerHTML={{ __html: text }}
       />
-    </div>
+    </Container>
   );
 };
 

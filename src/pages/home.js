@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import CoverPhoto from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
 import ContentCard from "../components/content-card";
@@ -58,7 +58,7 @@ const Cover = () => {
     getHighlights();
   }, []);
 
-  //console.log(highlights);
+  console.log(highlights);
 
   return (
     <Collapsible style={{ marginTop: "0" }}>
@@ -76,16 +76,19 @@ const Cover = () => {
               title={highlights[1].title.rendered}
               subtitle=""
               text={highlights[1].excerpt.rendered}
+              slug={highlights[1].slug}
             />
             <ContentCard
               title={highlights[2].title.rendered}
               subtitle=""
               text={highlights[2].excerpt.rendered}
+              slug={highlights[2].slug}
             />
             <ContentCard
               title={highlights[3].title.rendered}
               subtitle=""
               text={highlights[3].excerpt.rendered}
+              slug={highlights[3].slug}
             />
           </div>
         )}
@@ -96,19 +99,20 @@ const Cover = () => {
 
 const NormalSection = ({ type, endpoint }) => {
   const [articles, setArticles] = useState(null);
-  const getArticles = useCallback(async () => {
-    try {
-      let response;
-      response = await fetch(endpoint);
-      response = await response.json();
-      setArticles(response);
-    } catch (error) {
-      //console.log(error);
-    }
-  });
+
   useEffect(() => {
+    const getArticles = async () => {
+      try {
+        let response;
+        response = await fetch(endpoint);
+        response = await response.json();
+        setArticles(response);
+      } catch (error) {
+        //console.log(error);
+      }
+    };
     getArticles();
-  }, [getArticles]);
+  }, []);
 
   return (
     <div>
@@ -120,19 +124,22 @@ const NormalSection = ({ type, endpoint }) => {
           <StandardCard
             title={articles[0].title.rendered}
             subtitle={articles[0].excerpt.rendered}
-            image={articles[0].jetpack_featured_media_url}
+            image={articles[0]?.jetpack_featured_media_url}
+            slug={articles[0].slug}
           />
           <Line />
           <StandardCard
             title={articles[1].title.rendered}
             subtitle={articles[1].excerpt.rendered}
             image={articles[1].jetpack_featured_media_url}
+            slug={articles[0].slug}
           />
           <Line />
           <StandardCard
             title={articles[2].title.rendered}
             subtitle={articles[2].excerpt.rendered}
             image={articles[2].jetpack_featured_media_url}
+            slug={articles[0].slug}
           />
         </Collapsible>
       )}
@@ -147,33 +154,56 @@ const Title = styled.div`
   font-family: Merriweather;
 `;
 
-const EditorPicks = () => (
-  <div style={{ margin: "5%", marginBottom: "8%" }}>
-    <Title>The Editor's Picks: </Title>
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <EditorCard
-        title="Lorem Ipsum"
-        subtitle="OPINION"
-        text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia"
-        image={cover}
-      />
-      <EditorLine />
-      <EditorCard
-        title="Lorem Ipsum"
-        subtitle="OPINION"
-        text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia"
-        image={cover}
-      />
-      <EditorLine />
-      <EditorCard
-        title="Lorem Ipsum"
-        subtitle="OPINION"
-        text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dia"
-        image={cover}
-      />
+const EditorPicks = ({ endpoint }) => {
+  const [articles, setArticles] = useState(null);
+
+  useEffect(() => {
+    const getArticles = async () => {
+      try {
+        let response;
+        response = await fetch(endpoint);
+        response = await response.json();
+        console.log(response);
+        setArticles(response);
+      } catch (error) {
+        //console.log(error);
+      }
+    };
+
+    getArticles();
+  }, []);
+
+  return (
+    <div style={{ marginBottom: "5%" }}>
+      <Title style={{ marginLeft: "5%", marginBottom: "0px" }}>
+        The Editor's Picks:{" "}
+      </Title>
+      {articles == null ? (
+        <div />
+      ) : (
+        <Collapsible>
+          <EditorCard
+            title={articles[0].title.rendered}
+            subtitle={articles[0].excerpt.rendered}
+            image={articles[0].jetpack_featured_media_url}
+          />
+          <EditorLine />
+          <EditorCard
+            title={articles[1].title.rendered}
+            subtitle={articles[1].excerpt.rendered}
+            image={articles[1].jetpack_featured_media_url}
+          />
+          <EditorLine />
+          <EditorCard
+            title={articles[2].title.rendered}
+            subtitle={articles[2].excerpt.rendered}
+            image={articles[2].jetpack_featured_media_url}
+          />
+        </Collapsible>
+      )}
     </div>
-  </div>
-);
+  );
+};
 
 // const Mag = (type, endpoint) => (
 //   <Collapsible>
@@ -185,7 +215,7 @@ const Home = () => {
   return (
     <div>
       <Cover />
-      <EditorPicks />
+      <EditorPicks endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=2387" />
       <div>
         <NormalSection
           type="Local"

@@ -1,40 +1,57 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import { CategoryPhoto } from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
 import ContentCard from "../components/content-card";
 import CategoryCard from "../components/category-card";
+import { render } from "@testing-library/react";
 
-const Cover = ({ content }) => (
-  <div style={{ display: "flex", alignItems: "center" }}>
-    <CategoryPhoto
-      image={content.jetpack_featured_media_url}
-      slug={content.slug.rendered}
-    />
-    <div style={{ marginRight: "5%", marginLeft: "3%" }}>
-      <ContentCard
-        title={content.title.rendered}
-        text={content.excerpt.rendered}
+const Cover = ({ content }) => {
+  let history = useHistory();
+  const goToArticle = () => {
+    history.push({ pathname: "/:articles=" + content.slug });
+  };
+
+  return (
+    <div
+      style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+      onClick={goToArticle}
+    >
+      <CategoryPhoto
         image={content.jetpack_featured_media_url}
+        slug={content.slug.rendered}
       />
-    </div>
-  </div>
-);
-
-const Content = ({ content, type }) => (
-  <div style={{ display: "flex", alignItems: "flex-start" }}>
-    <TitleCard title={type} />
-    <div style={{ marginRight: "5%", marginLeft: "3%" }}>
-      {content.map((c, i) => (
-        <CategoryCard
-          key={i}
-          title={c.title.rendered}
-          text={c.excerpt.rendered}
-          image={c.jetpack_featured_media_url}
+      <div style={{ marginRight: "5%", marginLeft: "3%" }}>
+        <ContentCard
+          title={content.title.rendered}
+          text={content.excerpt.rendered}
+          image={content.jetpack_featured_media_url}
         />
-      ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
+const Content = ({ content, type }) => {
+  return (
+    <div
+      style={{ display: "flex", alignItems: "flex-start", cursor: "pointer" }}
+    >
+      <TitleCard title={type} />
+      <div style={{ marginRight: "5%", marginLeft: "3%" }}>
+        {content.map((c, i) => (
+          <CategoryCard
+            key={i}
+            title={c.title.rendered}
+            text={c.excerpt.rendered}
+            image={c.jetpack_featured_media_url}
+            slug={c.slug}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const Categories = (props) => {
   const [category, setCategory] = useState(null);

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const Subtitle = styled.div`
@@ -11,11 +12,17 @@ const Expandable = styled.div`
   padding-left: 20px;
   max-width: 250px;
   width: 250px;
+  cursor: pointer;
 `;
 
-const ContentCard = ({ title, subtitle, text }) => {
+const ContentCard = ({ title, subtitle, text, slug }) => {
+  let history = useHistory();
+  const goToArticle = () => {
+    history.push({ pathname: "/:articles=" + slug });
+  };
+
   return (
-    <Expandable>
+    <Expandable onClick={goToArticle}>
       <Subtitle>{subtitle}</Subtitle>
       <div
         style={{

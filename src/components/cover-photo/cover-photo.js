@@ -42,7 +42,6 @@ const CoverPhoto = ({ type }) => {
   }, []);
 
   const goToArticle = () => {
-    console.log(slug);
     history.push({ pathname: "/:articles=" + slug });
   };
 
