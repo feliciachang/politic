@@ -2,9 +2,50 @@ import React, { useEffect, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
 import { CategoryPhoto } from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
-import ContentCard from "../components/content-card";
 import CategoryCard from "../components/category-card";
+import ReactPaginate from "react-paginate";
 import { render } from "@testing-library/react";
+import styled from "styled-components";
+
+const Subtitle = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+`;
+
+const Expandable = styled.div`
+  padding: 10px;
+  padding-left: 20px;
+  max-width: 250px;
+  width: 250px;
+  cursor: pointer;
+`;
+
+const TitleContentCard = ({ title, subtitle, text, slug }) => {
+  let history = useHistory();
+  const goToArticle = () => {
+    history.push({ pathname: "/:articles=" + slug });
+  };
+
+  return (
+    <Expandable onClick={goToArticle}>
+      <Subtitle>{subtitle}</Subtitle>
+      <div
+        style={{
+          fontFamily: "Roboto Slab",
+          fontSize: "20px",
+        }}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+      <div
+        style={{
+          fontFamily: "Inter",
+          fontSize: "12px",
+        }}
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
+    </Expandable>
+  );
+};
 
 const Cover = ({ content }) => {
   let history = useHistory();
@@ -21,8 +62,8 @@ const Cover = ({ content }) => {
         image={content.jetpack_featured_media_url}
         slug={content.slug.rendered}
       />
-      <div style={{ marginRight: "5%", marginLeft: "3%" }}>
-        <ContentCard
+      <div style={{ marginRight: "10%", marginLeft: "3%" }}>
+        <TitleContentCard
           title={content.title.rendered}
           text={content.excerpt.rendered}
           image={content.jetpack_featured_media_url}
@@ -32,22 +73,37 @@ const Cover = ({ content }) => {
   );
 };
 
-const Content = ({ content, type }) => {
+const Content = ({ content, type, pageCount, handlePageClick }) => {
   return (
     <div
       style={{ display: "flex", alignItems: "flex-start", cursor: "pointer" }}
     >
       <TitleCard title={type} />
       <div style={{ marginRight: "5%", marginLeft: "3%" }}>
-        {content.map((c, i) => (
-          <CategoryCard
-            key={i}
-            title={c.title.rendered}
-            text={c.excerpt.rendered}
-            image={c.jetpack_featured_media_url}
-            slug={c.slug}
-          />
-        ))}
+        <div>
+          {content.map((c, i) => (
+            <CategoryCard
+              key={i}
+              title={c.title.rendered}
+              text={c.excerpt.rendered}
+              image={c.jetpack_featured_media_url}
+              slug={c.slug}
+            />
+          ))}
+        </div>
+        <ReactPaginate
+          previousLabel={"previous"}
+          nextLabel={"next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"}
+        />
       </div>
     </div>
   );
@@ -55,7 +111,9 @@ const Content = ({ content, type }) => {
 
 const Categories = (props) => {
   const [category, setCategory] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
   const [type, setType] = useState(null);
+  const [id, setId] = useState(null);
 
   useEffect(() => {
     const getCategory = async () => {
@@ -86,10 +144,14 @@ const Categories = (props) => {
       }
       let endpoint =
         "https://thepolitic.org/wp-json/wp/v2/posts?categories=" + id;
+      setId(id);
       try {
         let response = await fetch(endpoint);
-        response = await response.json();
-        setCategory(response);
+        let json = await response.json();
+        let header = await response.headers.get("X-WP-TotalPages");
+        setPageCount(parseInt(header) / 10);
+
+        setCategory(json);
       } catch (error) {
         //console.log(error);
       }
@@ -98,7 +160,21 @@ const Categories = (props) => {
     //console.log(category);
   }, [props.match.params.id]);
 
-  //console.log(category);
+  const handlePageClick = async (data) => {
+    let selected = data.selected;
+    let offset = (selected + 1) * 10;
+    console.log(offset);
+    let endpoint =
+      "https://thepolitic.org/wp-json/wp/v2/posts?" +
+      "?offset=" +
+      offset +
+      "categories=" +
+      id;
+    let response = await fetch(endpoint);
+    response = await response.json();
+    console.log(response);
+    setCategory(response);
+  };
 
   return (
     <div>
@@ -108,7 +184,12 @@ const Categories = (props) => {
         <div>
           <Cover content={category[0]} />
           <div style={{ margin: "5%" }}>
-            <Content content={category.slice(1)} type={type} />
+            <Content
+              content={category.slice(1)}
+              type={type}
+              pageCount={pageCount}
+              handlePageClick={handlePageClick}
+            />
           </div>
         </div>
       )}

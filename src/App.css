@@ -7,6 +7,19 @@
   pointer-events: none;
 }
 
+.pagination ul {
+  display: inline-block;
+}
+
+.pagination li {
+  display: inline-block;
+  list-style: none;
+  padding: 5px;
+}
+.iframecss {
+  margin-left: 1%;
+}
+
 html,
 body {
   height: 100%;

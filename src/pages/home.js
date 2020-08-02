@@ -5,6 +5,7 @@ import ContentCard from "../components/content-card";
 import EditorCard from "../components/editor-card";
 import StandardCard from "../components/standard-card";
 import Mailchimp from "../components/subscribe";
+import Iframe from "react-iframe";
 import cover from "../assets/cover.png";
 import styled from "styled-components";
 
@@ -147,6 +148,25 @@ const NormalSection = ({ type, endpoint }) => {
   );
 };
 
+const Mag = () => {
+  return (
+    <div>
+      <Collapsible>
+        <TitleCard title="Mag" />
+        <Iframe
+          url="https://issuu.com/theyalepolitic/docs/issue_v_final"
+          width="100%"
+          height="450px"
+          id="myId"
+          className="iframecss"
+          display="initial"
+          position="relative"
+        />
+      </Collapsible>
+    </div>
+  );
+};
+
 const Title = styled.div`
   font-size: 3vh;
   padding: 20px;
@@ -229,6 +249,7 @@ const Home = () => {
           type="World"
           endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=7"
         />
+        <Mag />
       </div>
       <Mailchimp />
     </div>

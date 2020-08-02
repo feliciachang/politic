@@ -122,9 +122,9 @@ const Footer = () => {
                 fontSize: "15px",
                 paddingBottom: "10px",
               }}
-              href="/category/:id=7"
+              href="/page/:id=columns"
             >
-              Tech
+              Columnists
             </a>
             <a
               style={{
@@ -133,9 +133,9 @@ const Footer = () => {
                 fontSize: "15px",
                 paddingBottom: "10px",
               }}
-              href="/category/:id=2317"
+              href="/category/:id=4284"
             >
-              Interviews
+              Sophists
             </a>
             <a
               style={{
@@ -144,9 +144,9 @@ const Footer = () => {
                 fontSize: "15px",
                 paddingBottom: "10px",
               }}
-              href="/category/:id=3"
+              href="/category/:id=957"
             >
-              Multimedia
+              Experts Of
             </a>
             <a
               style={{
@@ -155,9 +155,31 @@ const Footer = () => {
                 fontSize: "15px",
                 paddingBottom: "10px",
               }}
-              href="/category/:id=7"
+              href="/category/:id=4291"
             >
-              About
+              Voices Of
+            </a>
+            <a
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "15px",
+                paddingBottom: "10px",
+              }}
+              href="https://soundcloud.com/user-923032759"
+            >
+              Podcasts
+            </a>
+            <a
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "15px",
+                paddingBottom: "10px",
+              }}
+              href="/page/id=documentary"
+            >
+              Documentary
             </a>
           </div>
         </div>
@@ -180,7 +202,40 @@ const Footer = () => {
                 fontSize: "15px",
                 paddingBottom: "10px",
               }}
-              href="/category/:id=2317"
+              href="https://issuu.com/theyalepolitic/docs/issue_v_final"
+            >
+              Mag
+            </a>
+            <a
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "15px",
+                paddingBottom: "10px",
+              }}
+              href="/page/id=our-team"
+            >
+              Masthead
+            </a>
+            <a
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "15px",
+                paddingBottom: "10px",
+              }}
+              href="/page/id=our-history"
+            >
+              Our History
+            </a>
+            <a
+              style={{
+                color: "white",
+                textDecoration: "none",
+                fontSize: "15px",
+                paddingBottom: "10px",
+              }}
+              href="/page/id=our-history"
             >
               Contact Us
             </a>
@@ -193,6 +248,9 @@ const Footer = () => {
               </div>
               <div style={{ width: "40px" }}>
                 <img alt="twitter" style={{ width: "100%" }} src={twitter} />
+              </div>
+              <div style={{ width: "40px" }}>
+                <img alt="mail" style={{ width: "100%" }} src={twitter} />
               </div>
             </div>
           </div>

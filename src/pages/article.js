@@ -96,9 +96,10 @@ const Article = (props) => {
               </EmailShareButton>
             </div>
             <div style={{ marginLeft: "10%", maxWidth: "500px" }}>
-              <h1 style={{ fontFamily: "Merriweather" }}>
-                {article.title.rendered}
-              </h1>
+              <h1
+                style={{ fontFamily: "Merriweather" }}
+                dangerouslySetInnerHTML={{ __html: article.content.rendered }}
+              />
               <br />
               <div
                 style={{

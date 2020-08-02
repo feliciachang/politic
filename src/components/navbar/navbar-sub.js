@@ -70,7 +70,7 @@ export const AboutNav = () => {
               }}
               href="/page/id=our-team"
             >
-              Our Team
+              Masthead
             </a>
           </Item>
           <Item>
