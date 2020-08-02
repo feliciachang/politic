@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -24,7 +25,9 @@ const Img = styled.img`
 
 const Article = (props) => {
   const [article, setArticle] = useState(null);
+  const [author, setAuthor] = useState(null);
   const [id, setId] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     const getCover = async () => {
@@ -36,7 +39,14 @@ const Article = (props) => {
           "https://thepolitic.org/wp-json/wp/v2/posts?slug=" + id
         );
         response = await response.json();
-        //console.log(response[0]);
+        console.log(response);
+        let author = await fetch(
+          "https://thepolitic.org/wp-json/wp/v2/users/" + response[0].author
+        );
+        author = await author.json();
+        console.log(author);
+        setAuthor(author);
+
         setArticle(response[0]);
       } catch (error) {
         //console.log(error);
@@ -55,6 +65,11 @@ const Article = (props) => {
     getCover();
     // getAuthors();
   }, [props.match.params.article]);
+
+  const redirectToAuthor = () => {
+    history.push({ pathname: "/author/:id=" + author.id });
+  };
+
   return (
     <div>
       {article === null ? (
@@ -98,9 +113,21 @@ const Article = (props) => {
             <div style={{ marginLeft: "10%", maxWidth: "500px" }}>
               <h1
                 style={{ fontFamily: "Merriweather" }}
-                dangerouslySetInnerHTML={{ __html: article.content.rendered }}
+                dangerouslySetInnerHTML={{ __html: article.title.rendered }}
               />
               <br />
+              <div
+                onClick={redirectToAuthor}
+                style={{
+                  fontFamily: "Inter",
+                  lineHeight: "1.6",
+                  fontSize: "15px",
+                  fontWeight: "bold",
+                  cursor: "pointer",
+                }}
+              >
+                {author.name}
+              </div>
               <div
                 style={{
                   fontFamily: "Inter",

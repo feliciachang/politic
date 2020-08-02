@@ -20,6 +20,32 @@
   margin-left: 1%;
 }
 
+.static-page-body h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Roboto Slab;
+  font-size: 20px;
+}
+.static-page-body p {
+  font-family: Inter;
+  line-height: 1.6;
+  font-size: 15px;
+}
+.static-page-body h2 {
+  font-family: Inter;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.static-page-body img {
+  object-fit: cover;
+  width: 30%;
+  height: 250px;
+}
+
 html,
 body {
   height: 100%;

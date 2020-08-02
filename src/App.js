@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import Home from "./pages/home";
 import Categories from "./pages/categories";
 import Article from "./pages/article";
+import Author from "./pages/author";
 import StaticPages from "./pages/static-pages";
 
 import "./App.css";
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/category/:id" exact component={Categories} />
           <Route path="/:article" exact component={Article} />
           <Route path="/page/:id" exact component={StaticPages} />
+          <Route path="/author/:id" exact component={Author} />
         </Router>
       </div>
       <div className="footer">

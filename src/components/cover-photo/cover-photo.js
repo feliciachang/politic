@@ -46,7 +46,7 @@ const CoverPhoto = ({ type }) => {
   };
 
   return (
-    <div style={{ cursor: "pointer", width: "100%" }}>
+    <div onClick={goToArticle} style={{ cursor: "pointer", width: "100%" }}>
       <div className={styles.imgcontainer} onClick={() => goToArticle()}>
         <img alt="" className={styles.img} src={img} />
       </div>
