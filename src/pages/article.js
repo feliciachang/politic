@@ -75,7 +75,7 @@ const Article = (props) => {
       {article === null ? (
         <div>loading</div>
       ) : (
-        <div>
+        <div style={{ marginBottom: "5%" }}>
           <ImgContainer>
             <Img alt="" src={article.jetpack_featured_media_url} />
             <div>{article.cc_featured_image_caption.caption_text}</div>

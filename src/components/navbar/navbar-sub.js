@@ -256,7 +256,7 @@ export const OpinionNav = () => {
               }}
               href="/category/:id=4284"
             >
-              The Sophists
+              The Sophist
             </a>
           </Item>
         </DropdownContent>

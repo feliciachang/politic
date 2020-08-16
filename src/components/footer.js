@@ -185,7 +185,7 @@ const Footer = () => {
         </div>
       </SubContainer>
       <div>
-        <Title>Find US</Title>
+        <Title>Find Us</Title>
         <div style={{ display: "flex" }}>
           <div
             style={{
@@ -240,18 +240,24 @@ const Footer = () => {
               Contact Us
             </a>
             <div style={{ display: "flex" }}>
-              <div style={{ width: "40px" }}>
+              <a
+                style={{ width: "40px" }}
+                href="https://www.facebook.com/theyalepolitic"
+              >
                 <img alt="fb" style={{ width: "100%" }} src={fb} />
-              </div>
-              <div style={{ width: "40px" }}>
+              </a>
+              <div
+                style={{ width: "40px" }}
+                href="https://www.instagram.com/theyalepolitic/"
+              >
                 <img alt="insta" style={{ width: "100%" }} src={insta} />
               </div>
-              <div style={{ width: "40px" }}>
+              <a
+                style={{ width: "40px" }}
+                href="https://twitter.com/yalepolitic"
+              >
                 <img alt="twitter" style={{ width: "100%" }} src={twitter} />
-              </div>
-              <div style={{ width: "40px" }}>
-                <img alt="mail" style={{ width: "100%" }} src={twitter} />
-              </div>
+              </a>
             </div>
           </div>
         </div>
