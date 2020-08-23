@@ -149,7 +149,7 @@ const Categories = (props) => {
       try {
         let response = await fetch(endpoint);
         let json = await response.json();
-        let header = await response.headers.get("X-WP-TotalPages");
+        let header = await response.headers.get("X-WP-Total");
         setPageCount(parseInt(header) / 10);
 
         setCategory(json);
@@ -164,27 +164,32 @@ const Categories = (props) => {
   const handlePageClick = async (data) => {
     let selected = data.selected;
     let offset = (selected + 1) * 10;
-    console.log(offset);
+    console.log(selected, offset);
     let endpoint =
       "https://thepolitic.org/wp-json/wp/v2/posts?" +
-      "?offset=" +
-      offset +
+      "offset=" +
+      offset + "&" + 
       "categories=" +
       id;
     let response = await fetch(endpoint);
     response = await response.json();
     console.log(response);
     setCategory(response);
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   };
 
   return (
     <div>
       {category == null ? (
         <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
-        <div>
-          <Skeleton height={400} count={1} />
-          <br />
-          <Skeleton height={60} count={1} />
+        <div style={{marginRight: "40%"}}>
+          <Skeleton height={300} count={1} />
+        </div>
+        <div style={{margin: "5%", marginLeft: "20%"}}>
+          <div>
+          <Skeleton height={100} count={10} />
+          </div>
         </div>
       </SkeletonTheme>
       ) : (
