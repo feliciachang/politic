@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import CoverPhoto from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
 import ContentCard from "../components/content-card";
@@ -59,8 +60,6 @@ const Cover = () => {
     getHighlights();
   }, []);
 
-  console.log(highlights);
-
   return (
     <Collapsible style={{ marginTop: "0" }}>
       <CoverPhoto image={cover} text={"Lorem ipsum"} type={""} />
@@ -70,7 +69,11 @@ const Cover = () => {
         <TitleCard top={true} title="Highlights" />
         <br />
         {highlights === null ? (
-          <div />
+          <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
+            <div>
+              <Skeleton height={150} count={3} />
+            </div>
+          </SkeletonTheme>
         ) : (
           <div>
             <ContentCard
@@ -118,7 +121,11 @@ const NormalSection = ({ type, endpoint }) => {
   return (
     <div>
       {articles == null ? (
-        <div />
+        <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
+        <div style={{display: "flex"}}>
+          <Skeleton height={150} count={3} />
+        </div>
+      </SkeletonTheme>
       ) : (
         <Collapsible>
           <TitleCard title={type} endpoint={endpoint} />
@@ -199,7 +206,11 @@ const EditorPicks = ({ endpoint }) => {
         The Editor's Picks:{" "}
       </Title>
       {articles == null ? (
-        <div />
+        <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
+        <div style={{display: "flex"}}>
+          <Skeleton height={150} count={3} />
+        </div>
+      </SkeletonTheme>
       ) : (
         <Collapsible>
           <EditorCard

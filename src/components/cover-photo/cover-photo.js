@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./cp.module.css";
 
 export const CategoryPhoto = ({ image, slug }) => {
@@ -18,7 +19,7 @@ export const CategoryPhoto = ({ image, slug }) => {
 
 const CoverPhoto = ({ type }) => {
   const history = useHistory();
-  const [img, setImg] = useState();
+  const [img, setImg] = useState(null);
   const [text, setText] = useState();
   const [excerpt, setExceprt] = useState();
   const [slug, setSlug] = useState();
@@ -47,38 +48,50 @@ const CoverPhoto = ({ type }) => {
 
   return (
     <div onClick={goToArticle} style={{ cursor: "pointer", width: "100%" }}>
-      <div className={styles.imgcontainer} onClick={() => goToArticle()}>
-        <img alt="" className={styles.img} src={img} />
-      </div>
-      <div style={{ marginLeft: "5%", marginTop: "3%", marginRight: "2%" }}>
-        <div
-          style={{
-            fontSize: "10px",
-            fontWeight: "bold",
-            fontFamily: "Noto Sans JP",
-            marginTop: "3%",
-            marginBottom: "1%",
-          }}
-          dangerouslySetInnerHTML={{ __html: "COVER STORY" }}
-        />
-      </div>
-      <div style={{ marginLeft: "5%", marginRight: "2%" }}>
-        <div
-          style={{
-            fontFamily: "Merriweather",
-            fontSize: "25px",
-          }}
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
-        <div
-          style={{
-            fontFamily: "Noto Sans JP",
-            fontSize: "12px",
-            marginRight: "5%",
-          }}
-          dangerouslySetInnerHTML={{ __html: excerpt }}
-        />
-      </div>
+      {img === null ? (
+        <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
+          <div>
+            <Skeleton height={400} count={1} />
+            <br />
+            <Skeleton height={60} count={1} />
+          </div>
+        </SkeletonTheme>
+      ) : (
+        <>
+          <div className={styles.imgcontainer} onClick={() => goToArticle()}>
+            <img alt="" className={styles.img} src={img} />
+          </div>
+          <div style={{ marginLeft: "5%", marginTop: "3%", marginRight: "2%" }}>
+            <div
+              style={{
+                fontSize: "10px",
+                fontWeight: "bold",
+                fontFamily: "Noto Sans JP",
+                marginTop: "3%",
+                marginBottom: "1%",
+              }}
+              dangerouslySetInnerHTML={{ __html: "COVER STORY" }}
+            />
+          </div>
+          <div style={{ marginLeft: "5%", marginRight: "2%" }}>
+            <div
+              style={{
+                fontFamily: "Merriweather",
+                fontSize: "25px",
+              }}
+              dangerouslySetInnerHTML={{ __html: text }}
+            />
+            <div
+              style={{
+                fontFamily: "Noto Sans JP",
+                fontSize: "12px",
+                marginRight: "5%",
+              }}
+              dangerouslySetInnerHTML={{ __html: excerpt }}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { CategoryPhoto } from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
 import CategoryCard from "../components/category-card";
@@ -179,7 +180,13 @@ const Categories = (props) => {
   return (
     <div>
       {category == null ? (
-        <div />
+        <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
+        <div>
+          <Skeleton height={400} count={1} />
+          <br />
+          <Skeleton height={60} count={1} />
+        </div>
+      </SkeletonTheme>
       ) : (
         <div>
           <Cover content={category[0]} />
