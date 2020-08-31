@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -61,7 +62,19 @@ const Article = (props) => {
   return (
     <div>
       {article === null ? (
-        <div>loading</div>
+        <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
+          <Skeleton variant="rect" height={500} />
+          <div style={{ margin: "10%" }}>
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+          </div>
+        </SkeletonTheme>
       ) : (
         <div style={{ marginBottom: "5%" }}>
           <ImgContainer>

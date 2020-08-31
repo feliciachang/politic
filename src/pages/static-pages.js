@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 const StaticPages = (props) => {
   const [title, setTitle] = useState(null);
@@ -58,7 +59,21 @@ const StaticPages = (props) => {
           />
         </>
       ) : (
-        <div>loading</div>
+        <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
+          <div style={{ margin: "5%" }}>
+            <Skeleton variant="rect" height={100} width={300} />
+          </div>
+          <div style={{ margin: "10%" }}>
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+          </div>
+        </SkeletonTheme>
       )}
     </>
   );

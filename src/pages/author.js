@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CategoryCard from "../components/category-card";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styled from "styled-components";
 
 const H1 = styled.h1`
@@ -61,7 +62,19 @@ const AuthorPage = (props) => {
           </div>
         </div>
       ) : (
-        <div />
+        <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
+          <Skeleton variant="rect" height={500} />
+          <div style={{ margin: "10%" }}>
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+            <Skeleton variant="rect" height={10} />
+          </div>
+        </SkeletonTheme>
       )}
     </>
   );
