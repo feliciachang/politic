@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { CategoryPhoto } from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
 import CategoryCard from "../components/category-card";
 import ReactPaginate from "react-paginate";
-import { render } from "@testing-library/react";
 import styled from "styled-components";
 
 const Subtitle = styled.div`
@@ -164,16 +163,15 @@ const Categories = (props) => {
   const handlePageClick = async (data) => {
     let selected = data.selected;
     let offset = (selected + 1) * 10;
-    console.log(selected, offset);
     let endpoint =
       "https://thepolitic.org/wp-json/wp/v2/posts?" +
       "offset=" +
-      offset + "&" + 
+      offset +
+      "&" +
       "categories=" +
       id;
     let response = await fetch(endpoint);
     response = await response.json();
-    console.log(response);
     setCategory(response);
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -183,15 +181,15 @@ const Categories = (props) => {
     <div>
       {category == null ? (
         <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
-        <div style={{marginRight: "40%"}}>
-          <Skeleton height={300} count={1} />
-        </div>
-        <div style={{margin: "5%", marginLeft: "20%"}}>
-          <div>
-          <Skeleton height={100} count={10} />
+          <div style={{ marginRight: "40%" }}>
+            <Skeleton height={300} count={1} />
           </div>
-        </div>
-      </SkeletonTheme>
+          <div style={{ margin: "5%", marginLeft: "20%" }}>
+            <div>
+              <Skeleton height={100} count={10} />
+            </div>
+          </div>
+        </SkeletonTheme>
       ) : (
         <div>
           <Cover content={category[0]} />

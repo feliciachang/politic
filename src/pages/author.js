@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, withRouter } from "react-router-dom";
-import { CategoryPhoto } from "../components/cover-photo/cover-photo";
-import TitleCard from "../components/title-card";
 import CategoryCard from "../components/category-card";
-import ReactPaginate from "react-paginate";
-import { render } from "@testing-library/react";
 import styled from "styled-components";
 
 const H1 = styled.h1`
@@ -18,7 +13,6 @@ const AuthorPage = (props) => {
     const getCover = async () => {
       let id = props.match.params.id;
       id = id.slice(4);
-      console.log(id);
       try {
         let author = await fetch(
           "https://thepolitic.org/wp-json/wp/v2/users/" + id
@@ -29,7 +23,6 @@ const AuthorPage = (props) => {
           "https://thepolitic.org/wp-json/wp/v2/posts?author=" + id
         );
         response = await response.json();
-        console.log(response);
         setArticles(response);
       } catch (error) {
         //console.log(error);

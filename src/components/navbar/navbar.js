@@ -104,19 +104,6 @@ const Navbar = () => {
           <OpinionNav />
           <InterviewsNav />
           <MultimediaNav />
-          <a
-            style={{
-              color: "black",
-              textDecoration: "none",
-              fontSize: "13px",
-              marginRight: "10px",
-              marginTop: "7px",
-              fontFamily: "Noto Sans JP",
-            }}
-            href="https://issuu.com/theyalepolitic"
-          >
-            Publications
-          </a>
           <AboutNav />
         </div>
       </CSSTransition>

@@ -74,6 +74,19 @@ export const AboutNav = () => {
             </a>
           </Item>
           <Item>
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
+              }}
+              href="https://issuu.com/theyalepolitic"
+            >
+              Publications
+            </a>
+          </Item>
+          <Item>
             {" "}
             <a
               style={{

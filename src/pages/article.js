@@ -39,12 +39,10 @@ const Article = (props) => {
           "https://thepolitic.org/wp-json/wp/v2/posts?slug=" + id
         );
         response = await response.json();
-        console.log(response);
         let author = await fetch(
           "https://thepolitic.org/wp-json/wp/v2/users/" + response[0].author
         );
         author = await author.json();
-        console.log(author);
         setAuthor(author);
 
         setArticle(response[0]);
@@ -52,18 +50,8 @@ const Article = (props) => {
         //console.log(error);
       }
     };
-    // const getAuthors = async () => {
-    //   let authorgrp = [];
-    //   for (let j = 0; j < article._links.author.length; j++) {
-    //     let author = await fetch(article._links.author[j].href);
-    //     author = await author.json();
-    //     authorgrp.push(author);
-    //   }
-    //   setAuthor(authorgrp);
-    // };
 
     getCover();
-    // getAuthors();
   }, [props.match.params.article]);
 
   const redirectToAuthor = () => {

@@ -122,10 +122,10 @@ const NormalSection = ({ type, endpoint }) => {
     <div>
       {articles == null ? (
         <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
-        <div style={{display: "flex"}}>
-          <Skeleton height={150} count={3} />
-        </div>
-      </SkeletonTheme>
+          <div style={{ display: "flex" }}>
+            <Skeleton height={150} count={3} />
+          </div>
+        </SkeletonTheme>
       ) : (
         <Collapsible>
           <TitleCard title={type} endpoint={endpoint} />
@@ -190,7 +190,6 @@ const EditorPicks = ({ endpoint }) => {
         let response;
         response = await fetch(endpoint);
         response = await response.json();
-        console.log(response);
         setArticles(response);
       } catch (error) {
         //console.log(error);
@@ -207,10 +206,10 @@ const EditorPicks = ({ endpoint }) => {
       </Title>
       {articles == null ? (
         <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
-        <div style={{display: "flex"}}>
-          <Skeleton height={150} count={3} />
-        </div>
-      </SkeletonTheme>
+          <div style={{ display: "flex" }}>
+            <Skeleton height={150} count={3} />
+          </div>
+        </SkeletonTheme>
       ) : (
         <Collapsible>
           <EditorCard
@@ -235,12 +234,6 @@ const EditorPicks = ({ endpoint }) => {
     </div>
   );
 };
-
-// const Mag = (type, endpoint) => (
-//   <Collapsible>
-//     <TitleCard title={type} endpoint={endpoint} />
-//   </Collapsible>
-// );
 
 const Home = () => {
   return (
