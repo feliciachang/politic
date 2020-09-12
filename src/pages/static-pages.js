@@ -11,7 +11,7 @@ const StaticPages = (props) => {
       id = id.slice(3);
       try {
         let response = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/pages?slug=" + id
+          "http://thepoliticbackend.org/wp-json/wp/v2/pages?slug=" + id
         );
         response = await response.json();
         console.log(response);

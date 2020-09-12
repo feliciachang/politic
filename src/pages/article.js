@@ -37,11 +37,11 @@ const Article = (props) => {
       setId(id);
       try {
         let response = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/posts?slug=" + id
+          "http://thepoliticbackend.org/wp-json/wp/v2/posts?slug=" + id
         );
         response = await response.json();
         let author = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/users/" +
+          "http://thepoliticbackend.org/wp-json/wp/v2/users/" +
             response[0].author
         );
         author = await author.json();

@@ -16,12 +16,12 @@ const AuthorPage = (props) => {
       id = id.slice(4);
       try {
         let author = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/users/" + id
+          "http://thepoliticbackend.org/wp-json/wp/v2/users/" + id
         );
         author = await author.json();
         setAuthor(author);
         let response = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/posts?author=" + id
+          "http://thepoliticbackend.org/wp-json/wp/v2/posts?author=" + id
         );
         response = await response.json();
         setArticles(response);
