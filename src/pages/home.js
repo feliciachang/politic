@@ -48,7 +48,7 @@ const Cover = () => {
     const getHighlights = async () => {
       try {
         let response = await fetch(
-          "https://thepolitic.org/wp-json/wp/v2/posts?per_page=4"
+          "https://thepoliticbackend.org/wp-json/wp/v2/posts?per_page=4"
         );
         response = await response.json();
         //console.log(response);
@@ -239,19 +239,19 @@ const Home = () => {
   return (
     <div>
       <Cover />
-      <EditorPicks endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=2387" />
+      <EditorPicks endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2387" />
       <div>
         <NormalSection
           type="Local"
-          endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=2317"
+          endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2317"
         />
         <NormalSection
           type="National"
-          endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=3"
+          endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=3"
         />
         <NormalSection
           type="World"
-          endpoint="https://thepolitic.org/wp-json/wp/v2/posts?categories=7"
+          endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=7"
         />
         <Mag />
       </div>

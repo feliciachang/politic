@@ -143,7 +143,7 @@ const Categories = (props) => {
           break;
       }
       let endpoint =
-        "https://thepolitic.org/wp-json/wp/v2/posts?categories=" + id;
+        "https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=" + id;
       setId(id);
       try {
         let response = await fetch(endpoint);
@@ -164,7 +164,7 @@ const Categories = (props) => {
     let selected = data.selected;
     let offset = (selected + 1) * 10;
     let endpoint =
-      "https://thepolitic.org/wp-json/wp/v2/posts?" +
+      "https://thepoliticbackend.org/wp-json/wp/v2/posts?" +
       "offset=" +
       offset +
       "&" +

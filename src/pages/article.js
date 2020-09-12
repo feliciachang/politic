@@ -37,11 +37,12 @@ const Article = (props) => {
       setId(id);
       try {
         let response = await fetch(
-          "https://thepolitic.org/wp-json/wp/v2/posts?slug=" + id
+          "https://thepoliticbackend.org/wp-json/wp/v2/posts?slug=" + id
         );
         response = await response.json();
         let author = await fetch(
-          "https://thepolitic.org/wp-json/wp/v2/users/" + response[0].author
+          "https://thepoliticbackend.org/wp-json/wp/v2/users/" +
+            response[0].author
         );
         author = await author.json();
         setAuthor(author);
@@ -99,15 +100,19 @@ const Article = (props) => {
               }}
             >
               <FacebookShareButton
-                url={"http://thepolitic.org/:articles=" + id}
+                url={"http://thepoliticbackend.org/:articles=" + id}
               >
                 <FacebookIcon size={32} round={true} />
               </FacebookShareButton>
 
-              <TwitterShareButton url={"http://thepolitic.org/:articles=" + id}>
+              <TwitterShareButton
+                url={"http://thepoliticbackend.org/:articles=" + id}
+              >
                 <TwitterIcon size={32} round={true} />
               </TwitterShareButton>
-              <EmailShareButton url={"http://thepolitic.org/:articles=" + id}>
+              <EmailShareButton
+                url={"http://thepoliticbackend.org/:articles=" + id}
+              >
                 <EmailIcon size={32} round={true} />
               </EmailShareButton>
             </div>
