@@ -37,11 +37,11 @@ const Article = (props) => {
       setId(id);
       try {
         let response = await fetch(
-          "http://thepoliticbackend.org/wp-json/wp/v2/posts?slug=" + id
+          "https://thepoliticbackend.org/wp-json/wp/v2/posts?slug=" + id
         );
         response = await response.json();
         let author = await fetch(
-          "http://thepoliticbackend.org/wp-json/wp/v2/users/" +
+          "https://thepoliticbackend.org/wp-json/wp/v2/users/" +
             response[0].author
         );
         author = await author.json();
@@ -100,18 +100,18 @@ const Article = (props) => {
               }}
             >
               <FacebookShareButton
-                url={"http://thepoliticbackend.org/:articles=" + id}
+                url={"https://thepoliticbackend.org/:articles=" + id}
               >
                 <FacebookIcon size={32} round={true} />
               </FacebookShareButton>
 
               <TwitterShareButton
-                url={"http://thepoliticbackend.org/:articles=" + id}
+                url={"https://thepoliticbackend.org/:articles=" + id}
               >
                 <TwitterIcon size={32} round={true} />
               </TwitterShareButton>
               <EmailShareButton
-                url={"http://thepoliticbackend.org/:articles=" + id}
+                url={"https://thepoliticbackend.org/:articles=" + id}
               >
                 <EmailIcon size={32} round={true} />
               </EmailShareButton>
