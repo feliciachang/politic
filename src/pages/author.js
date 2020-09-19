@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import CategoryCard from "../components/category-card";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styled from "styled-components";
@@ -34,6 +35,15 @@ const AuthorPage = (props) => {
 
   return (
     <>
+      <Helmet>
+        <title>
+          The Yale Politic - {author?.name ? author.name : "Author"}
+        </title>
+        <meta
+          name="description"
+          content="Yale’s Political Publication Since 1947"
+        />
+      </Helmet>
       {articles !== null ? (
         <div
           style={{

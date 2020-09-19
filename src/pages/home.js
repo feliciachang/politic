@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { Helmet } from "react-helmet";
 import CoverPhoto from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
 import ContentCard from "../components/content-card";
@@ -238,6 +239,13 @@ const EditorPicks = ({ endpoint }) => {
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>The Yale Politic - Home</title>
+        <meta
+          name="description"
+          content="Yale’s Political Publication Since 1947"
+        />
+      </Helmet>
       <Cover />
       <EditorPicks endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2387" />
       <div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { Helmet } from "react-helmet";
 
 const StaticPages = (props) => {
   const [title, setTitle] = useState(null);
@@ -42,6 +43,13 @@ const StaticPages = (props) => {
 
   return (
     <>
+      <Helmet>
+        <title>The Yale Politic - {title ? title : "Static Page"}</title>
+        <meta
+          name="description"
+          content="Yale’s Political Publication Since 1947"
+        />
+      </Helmet>
       {title !== null && article !== null ? (
         <>
           <h1

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { Helmet } from "react-helmet";
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -62,6 +63,16 @@ const Article = (props) => {
 
   return (
     <div>
+      <Helmet>
+        <title>
+          The Yale Politic -
+          {article?.title.rendered ? article?.title.rendered : "Article"}
+        </title>
+        <meta
+          name="description"
+          content="Yale’s Political Publication Since 1947"
+        />
+      </Helmet>
       {article === null ? (
         <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
           <Skeleton variant="rect" height={500} />

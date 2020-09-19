@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { CategoryPhoto } from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
@@ -179,6 +180,13 @@ const Categories = (props) => {
 
   return (
     <div>
+      <Helmet>
+        <title>The Yale Politic - {type ? type : "Category"}</title>
+        <meta
+          name="description"
+          content="Yale’s Political Publication Since 1947"
+        />
+      </Helmet>
       {category == null ? (
         <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
           <div style={{ marginRight: "40%" }}>
