@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import AdSense from "react-adsense";
 import { Helmet } from "react-helmet";
 import CoverPhoto from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
@@ -248,6 +249,7 @@ const Home = () => {
       </Helmet>
       <Cover />
       <EditorPicks endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2387" />
+      <AdSense.Google client="ca-pub-6983293802174566" slot="2769088860" />
       <div>
         <NormalSection
           type="Local"

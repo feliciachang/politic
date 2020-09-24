@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import AdSense from "react-adsense";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Helmet } from "react-helmet";
 import {
@@ -145,6 +146,12 @@ const Article = (props) => {
               >
                 {author.name}
               </div>
+              <br />
+              <AdSense.Google
+                client="ca-pub-6983293802174566"
+                slot="2769088860"
+              />
+              <br />
               <div
                 style={{
                   fontFamily: "Inter",
@@ -152,6 +159,10 @@ const Article = (props) => {
                   fontSize: "15px",
                 }}
                 dangerouslySetInnerHTML={{ __html: article.content.rendered }}
+              />
+              <AdSense.Google
+                client="ca-pub-6983293802174566"
+                slot="2769088860"
               />
             </div>
           </div>
