@@ -214,11 +214,7 @@ const Categories = (props) => {
       )}
       <br />
       <br />
-      <AdSense.Google
-        client="ca-pub-6983293802174566"
-        slot="2769088860"
-        style={{ height: "300px" }}
-      />
+      <AdSense.Google client="ca-pub-6983293802174566" slot="2769088860" />
     </div>
   );
 };

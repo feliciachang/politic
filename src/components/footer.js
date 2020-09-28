@@ -40,7 +40,7 @@ const Title = styled.div`
 const Footer = () => {
   return (
     <Container>
-      <img alt="logo" style={{ width: "150px" }} src={logo} />
+      <img alt="logo" style={{ width: "150px", height: "100%" }} src={logo} />
       <SubContainer>
         <Title>Read More</Title>
         <div style={{ display: "flex" }}>
