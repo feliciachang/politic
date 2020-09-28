@@ -127,11 +127,6 @@ const Article = (props) => {
               >
                 <EmailIcon size={32} round={true} />
               </EmailShareButton>
-              <br />
-              <AdSense.Google
-                client="ca-pub-6983293802174566"
-                slot="2769088860"
-              />
             </div>
             <div style={{ marginLeft: "10%", maxWidth: "500px" }}>
               <h1
