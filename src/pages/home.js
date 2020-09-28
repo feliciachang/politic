@@ -249,7 +249,19 @@ const Home = () => {
       </Helmet>
       <Cover />
       <EditorPicks endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2387" />
-      <AdSense.Google client="ca-pub-6983293802174566" slot="2769088860" />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <AdSense.Google
+          client="ca-pub-6983293802174566"
+          slot="2769088860"
+          style={{ height: "150px", width: "70%" }}
+        />
+      </div>
       <div>
         <NormalSection
           type="Local"

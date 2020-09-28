@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import AdSense from "react-adsense";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { CategoryPhoto } from "../components/cover-photo/cover-photo";
 import TitleCard from "../components/title-card";
@@ -211,6 +212,13 @@ const Categories = (props) => {
           </div>
         </div>
       )}
+      <br />
+      <br />
+      <AdSense.Google
+        client="ca-pub-6983293802174566"
+        slot="2769088860"
+        style={{ height: "300px" }}
+      />
     </div>
   );
 };

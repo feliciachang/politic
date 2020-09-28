@@ -127,6 +127,12 @@ const Article = (props) => {
               >
                 <EmailIcon size={32} round={true} />
               </EmailShareButton>
+              <br />
+              <AdSense.Google
+                client="ca-pub-6983293802174566"
+                slot="2769088860"
+                style={{ width: "50%", height: "50%" }}
+              />
             </div>
             <div style={{ marginLeft: "10%", maxWidth: "500px" }}>
               <h1
@@ -147,11 +153,6 @@ const Article = (props) => {
                 {author.name}
               </div>
               <br />
-              <AdSense.Google
-                client="ca-pub-6983293802174566"
-                slot="2769088860"
-              />
-              <br />
               <div
                 style={{
                   fontFamily: "Inter",
@@ -160,6 +161,8 @@ const Article = (props) => {
                 }}
                 dangerouslySetInnerHTML={{ __html: article.content.rendered }}
               />
+              <br />
+              <br />
               <AdSense.Google
                 client="ca-pub-6983293802174566"
                 slot="2769088860"
