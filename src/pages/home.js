@@ -163,7 +163,7 @@ const Mag = () => {
       <Collapsible>
         <TitleCard title="Mag" />
         <Iframe
-          url="http://issuu.com/theyalepolitic/docs/issue_v_final"
+          url="https://issuu.com/theyalepolitic/docs/issue_v_final"
           width="100%"
           height="450px"
           id="myId"
