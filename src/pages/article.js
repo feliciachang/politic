@@ -112,18 +112,21 @@ const Article = (props) => {
               }}
             >
               <FacebookShareButton
-                url={"https://thepoliticbackend.org/:articles=" + id}
+                quote={article.title.rendered}
+                url={"https://thepolitic.org/:articles=" + id}
               >
                 <FacebookIcon size={32} round={true} />
               </FacebookShareButton>
 
               <TwitterShareButton
-                url={"https://thepoliticbackend.org/:articles=" + id}
+                title={article.title.rendered}
+                url={"https://thepolitic.org/:articles=" + id}
               >
                 <TwitterIcon size={32} round={true} />
               </TwitterShareButton>
               <EmailShareButton
-                url={"https://thepoliticbackend.org/:articles=" + id}
+                subject={article.title.rendered}
+                url={"https://thepolitic.org/:articles=" + id}
               >
                 <EmailIcon size={32} round={true} />
               </EmailShareButton>
