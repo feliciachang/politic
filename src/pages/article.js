@@ -64,16 +64,6 @@ const Article = (props) => {
 
   return (
     <div>
-      <Helmet>
-        <title>
-          The Yale Politic -
-          {article?.title.rendered ? article?.title.rendered : "Article"}
-        </title>
-        <meta
-          name="description"
-          content="Yale’s Political Publication Since 1947"
-        />
-      </Helmet>
       {article === null ? (
         <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
           <Skeleton variant="rect" height={500} />
@@ -89,84 +79,102 @@ const Article = (props) => {
           </div>
         </SkeletonTheme>
       ) : (
-        <div style={{ marginBottom: "5%" }}>
-          <ImgContainer>
-            <Img alt="" src={article.jetpack_featured_media_url} />
-            <div>{article.cc_featured_image_caption.caption_text}</div>
-          </ImgContainer>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginLeft: "10%",
-              marginRight: "15%",
-              marginTop: "5%",
-              flexDirection: "row",
-            }}
-          >
+        <>
+          <Helmet>
+            <title>
+              The Yale Politic -
+              {article?.title.rendered ? article?.title.rendered : "Article"}
+            </title>
+            <meta property="og:title" content={article?.title.rendered} />
+            <meta property="og:description" content="" />
+            <meta
+              property="og:image"
+              content={article?.jetpack_featured_media_url}
+            />
+            <meta
+              name={"description"}
+              content="Yale’s Political Publication Since 1947"
+            />
+          </Helmet>
+          <div style={{ marginBottom: "5%" }}>
+            <ImgContainer>
+              <Img alt="" src={article.jetpack_featured_media_url} />
+              <div>{article.cc_featured_image_caption.caption_text}</div>
+            </ImgContainer>
             <div
               style={{
-                marginTop: "25px",
                 display: "flex",
-                flexDirection: "column",
+                justifyContent: "center",
+                marginLeft: "10%",
+                marginRight: "15%",
+                marginTop: "5%",
+                flexDirection: "row",
               }}
             >
-              <FacebookShareButton
-                quote={article.title.rendered}
-                url={"https://thepolitic.org/:articles=" + id}
+              <div
+                style={{
+                  marginTop: "25px",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
               >
-                <FacebookIcon size={32} round={true} />
-              </FacebookShareButton>
+                <FacebookShareButton
+                  quote={article.title.rendered}
+                  url={"https://thepolitic.org/:articles=" + id}
+                >
+                  <FacebookIcon size={32} round={true} />
+                </FacebookShareButton>
 
-              <TwitterShareButton
-                title={article.title.rendered}
-                url={"https://thepolitic.org/:articles=" + id}
-              >
-                <TwitterIcon size={32} round={true} />
-              </TwitterShareButton>
-              <EmailShareButton
-                subject={article.title.rendered}
-                url={"https://thepolitic.org/:articles=" + id}
-              >
-                <EmailIcon size={32} round={true} />
-              </EmailShareButton>
-            </div>
-            <div style={{ marginLeft: "10%", maxWidth: "500px" }}>
-              <h1
-                style={{ fontFamily: "Merriweather" }}
-                dangerouslySetInnerHTML={{ __html: article.title.rendered }}
-              />
-              <br />
-              <div
-                onClick={redirectToAuthor}
-                style={{
-                  fontFamily: "Inter",
-                  lineHeight: "1.6",
-                  fontSize: "15px",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                }}
-              >
-                {author.name}
+                <TwitterShareButton
+                  title={article.title.rendered}
+                  url={"https://thepolitic.org/:articles=" + id}
+                >
+                  <TwitterIcon size={32} round={true} />
+                </TwitterShareButton>
+                <EmailShareButton
+                  subject={article.title.rendered}
+                  url={"https://thepolitic.org/:articles=" + id}
+                >
+                  <EmailIcon size={32} round={true} />
+                </EmailShareButton>
               </div>
-              <br />
-              <div
-                style={{
-                  fontFamily: "Inter",
-                  lineHeight: "1.6",
-                  fontSize: "15px",
-                }}
-                dangerouslySetInnerHTML={{ __html: article.content.rendered }}
-              />
-              <br />
-              <br />
-              <AdSense.Google
-                client="ca-pub-6983293802174566"
-                slot="2769088860"
-              />
+              <div style={{ marginLeft: "10%", maxWidth: "500px" }}>
+                <h1
+                  style={{ fontFamily: "Merriweather" }}
+                  dangerouslySetInnerHTML={{ __html: article.title.rendered }}
+                />
+                <br />
+                <div
+                  onClick={redirectToAuthor}
+                  style={{
+                    fontFamily: "Inter",
+                    lineHeight: "1.6",
+                    fontSize: "15px",
+                    fontWeight: "bold",
+                    cursor: "pointer",
+                  }}
+                >
+                  {author.name}
+                </div>
+                <br />
+                <div
+                  style={{
+                    fontFamily: "Inter",
+                    lineHeight: "1.6",
+                    fontSize: "15px",
+                  }}
+                  dangerouslySetInnerHTML={{ __html: article.content.rendered }}
+                />
+                <br />
+                <br />
+                <AdSense.Google
+                  client="ca-pub-6983293802174566"
+                  slot="2769088860"
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
