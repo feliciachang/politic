@@ -12,7 +12,7 @@ import StaticPages from "./pages/static-pages";
 
 import "./App.css";
 
-ReactGA.initialize("G-WB32VC70XW");
+ReactGA.initialize("UA-184469006-1");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => {
