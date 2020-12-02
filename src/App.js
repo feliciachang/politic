@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer";
+import ReactGA from "react-ga";
 
 import Home from "./pages/home";
 import Categories from "./pages/categories";
@@ -10,6 +11,9 @@ import Author from "./pages/author";
 import StaticPages from "./pages/static-pages";
 
 import "./App.css";
+
+ReactGA.initialize("G-WB32VC70XW");
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => {
   return (
