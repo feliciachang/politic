@@ -163,7 +163,7 @@ const Mag = () => {
       <Collapsible>
         <TitleCard title="Mag" />
         <Iframe
-          url="https://issuu.com/theyalepolitic/docs/issue_v_final"
+          url="https://issuu.com/theyalepolitic/docs/issue_ii_-_final"
           width="100%"
           height="450px"
           id="myId"
@@ -193,6 +193,7 @@ const EditorPicks = ({ endpoint }) => {
         response = await fetch(endpoint);
         response = await response.json();
         setArticles(response);
+        console.log(response);
       } catch (error) {
         //console.log(error);
       }
@@ -218,18 +219,21 @@ const EditorPicks = ({ endpoint }) => {
             title={articles[0].title.rendered}
             subtitle={articles[0].excerpt.rendered}
             image={articles[0].jetpack_featured_media_url}
+            slug={articles[0].slug}
           />
           <EditorLine />
           <EditorCard
             title={articles[1].title.rendered}
             subtitle={articles[1].excerpt.rendered}
             image={articles[1].jetpack_featured_media_url}
+            slug={articles[0].slug}
           />
           <EditorLine />
           <EditorCard
             title={articles[2].title.rendered}
             subtitle={articles[2].excerpt.rendered}
             image={articles[2].jetpack_featured_media_url}
+            slug={articles[0].slug}
           />
         </Collapsible>
       )}
@@ -249,19 +253,6 @@ const Home = () => {
       </Helmet>
       <Cover />
       <EditorPicks endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2387" />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <AdSense.Google
-          client="ca-pub-6983293802174566"
-          slot="2769088860"
-          style={{ height: "150px", width: "70%" }}
-        />
-      </div>
       <div>
         <NormalSection
           type="Local"
@@ -278,6 +269,19 @@ const Home = () => {
         <Mag />
       </div>
       <Mailchimp />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <AdSense.Google
+          client="ca-pub-6983293802174566"
+          slot="2769088860"
+          style={{ height: "150px", width: "70%" }}
+        />
+      </div>
     </div>
   );
 };
