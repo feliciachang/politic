@@ -21,7 +21,7 @@ const Container = styled.div`
 const ContentCard = ({ title, subtitle, image, slug }) => {
   let history = useHistory();
   const goToArticle = () => {
-    history.push({ pathname: "/:articles=" + slug });
+    history.push({ pathname: "/" + slug });
   };
 
   return (

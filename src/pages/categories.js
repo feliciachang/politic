@@ -25,7 +25,7 @@ const Expandable = styled.div`
 const TitleContentCard = ({ title, subtitle, text, slug }) => {
   let history = useHistory();
   const goToArticle = () => {
-    history.push({ pathname: "/:articles=" + slug });
+    history.push({ pathname: "/" + slug });
   };
 
   return (

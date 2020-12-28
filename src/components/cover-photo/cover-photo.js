@@ -43,7 +43,7 @@ const CoverPhoto = ({ type }) => {
   }, []);
 
   const goToArticle = () => {
-    history.push({ pathname: "/:articles=" + slug });
+    history.push({ pathname: "/" + slug });
   };
 
   return (

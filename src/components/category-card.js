@@ -12,7 +12,7 @@ const ImgContainer = styled.div`
 const CategoryCard = ({ title, text, image, slug }) => {
   let history = useHistory();
   const goToArticle = () => {
-    history.push({ pathname: "/:articles=" + slug });
+    history.push({ pathname: "/" + slug });
   };
 
   return (

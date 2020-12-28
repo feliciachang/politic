@@ -21,7 +21,7 @@ const Container = styled.div`
 const EditorCard = ({ title, subtitle, text, image, slug }) => {
   let history = useHistory();
   const goToArticle = () => {
-    history.push({ pathname: "/:articles=" + slug });
+    history.push({ pathname: "/" + slug });
   };
   return (
     <Container onClick={goToArticle}>

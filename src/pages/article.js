@@ -35,7 +35,7 @@ const Article = (props) => {
   useEffect(() => {
     const getCover = async () => {
       let id = props.match.params.article;
-      id = id.slice(10);
+      // id = id.slice(10);
       setId(id);
       try {
         let response = await fetch(
