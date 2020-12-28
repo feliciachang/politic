@@ -52,7 +52,7 @@ const TitleContentCard = ({ title, subtitle, text, slug }) => {
 const Cover = ({ content }) => {
   let history = useHistory();
   const goToArticle = () => {
-    history.push({ pathname: "/:articles=" + content.slug });
+    history.push({ pathname: "/" + content.slug });
   };
 
   return (
