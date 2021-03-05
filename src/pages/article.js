@@ -12,6 +12,7 @@ import {
   EmailIcon,
 } from "react-share";
 import styled from "styled-components";
+import { fetchFromAPI } from "../utils/api";
 
 const ImgContainer = styled.div`
   position: relative;
@@ -38,15 +39,8 @@ const Article = (props) => {
       // id = id.slice(10);
       setId(id);
       try {
-        let response = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/posts?slug=" + id
-        );
-        response = await response.json();
-        let author = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/users/" +
-            response[0].author
-        );
-        author = await author.json();
+        let response = await fetchFromAPI("posts?slug=" + id);
+        let author = await fetchFromAPI("users/" + response[0].author);
         setAuthor(author);
 
         setArticle(response[0]);

@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import CategoryCard from "../components/category-card";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styled from "styled-components";
+import { fetchFromAPI } from "../utils/api";
 
 const H1 = styled.h1`
   font-family: "Merriweather";
@@ -16,15 +17,9 @@ const AuthorPage = (props) => {
       let id = props.match.params.id;
       id = id.slice(4);
       try {
-        let author = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/users/" + id
-        );
-        author = await author.json();
+        let author = await fetchFromAPI("users/" + id);
         setAuthor(author);
-        let response = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/posts?author=" + id
-        );
-        response = await response.json();
+        let response = await fetchFromAPI("posts?author=" + id);
         setArticles(response);
       } catch (error) {
         //console.log(error);

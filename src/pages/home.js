@@ -11,6 +11,7 @@ import Mailchimp from "../components/subscribe";
 import Iframe from "react-iframe";
 import cover from "../assets/cover.png";
 import styled from "styled-components";
+import { fetchFromAPI } from "../utils/api";
 
 const Line = styled.div`
   border-left: 2px solid rgb(240, 240, 240);
@@ -49,11 +50,8 @@ const Cover = () => {
   useEffect(() => {
     const getHighlights = async () => {
       try {
-        let response = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/posts?per_page=4"
-        );
-        response = await response.json();
-        //console.log(response);
+        let response = await fetchFromAPI("posts?per_page=4");
+        console.log("hi", response);
         setHighlights(response);
       } catch (error) {
         //console.log(error);
@@ -226,14 +224,14 @@ const EditorPicks = ({ endpoint }) => {
             title={articles[1].title.rendered}
             subtitle={articles[1].excerpt.rendered}
             image={articles[1].jetpack_featured_media_url}
-            slug={articles[0].slug}
+            slug={articles[1].slug}
           />
           <EditorLine />
           <EditorCard
             title={articles[2].title.rendered}
             subtitle={articles[2].excerpt.rendered}
             image={articles[2].jetpack_featured_media_url}
-            slug={articles[0].slug}
+            slug={articles[2].slug}
           />
         </Collapsible>
       )}

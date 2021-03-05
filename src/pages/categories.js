@@ -8,6 +8,7 @@ import TitleCard from "../components/title-card";
 import CategoryCard from "../components/category-card";
 import ReactPaginate from "react-paginate";
 import styled from "styled-components";
+import { fetchFromAPI, fetchFromAPIWithHeader } from "../utils/api";
 
 const Subtitle = styled.div`
   font-size: 20px;
@@ -76,6 +77,7 @@ const Cover = ({ content }) => {
 };
 
 const Content = ({ content, type, pageCount, handlePageClick }) => {
+  console.log("pageCount", pageCount);
   return (
     <div
       style={{ display: "flex", alignItems: "flex-start", cursor: "pointer" }}
@@ -121,6 +123,7 @@ const Categories = (props) => {
     const getCategory = async () => {
       let id = props.match.params.id;
       id = id.slice(4);
+      console.log(id);
       switch (id) {
         case "2317":
           setType("Local");
@@ -144,16 +147,14 @@ const Categories = (props) => {
           setType("The Sophist");
           break;
       }
-      let endpoint =
-        "https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=" + id;
+      let endpoint = "posts?categories=" + id;
       setId(id);
       try {
-        let response = await fetch(endpoint);
-        let json = await response.json();
-        let header = await response.headers.get("X-WP-Total");
-        setPageCount(parseInt(header) / 10);
-
-        setCategory(json);
+        let response = await fetchFromAPIWithHeader(endpoint);
+        console.log(response);
+        setCategory(response.data);
+        //let header = await response.headers.get("X-WP-Total");
+        setPageCount(10);
       } catch (error) {
         //console.log(error);
       }
@@ -165,15 +166,8 @@ const Categories = (props) => {
   const handlePageClick = async (data) => {
     let selected = data.selected;
     let offset = (selected + 1) * 10;
-    let endpoint =
-      "https://thepoliticbackend.org/wp-json/wp/v2/posts?" +
-      "offset=" +
-      offset +
-      "&" +
-      "categories=" +
-      id;
-    let response = await fetch(endpoint);
-    response = await response.json();
+    let endpoint = "posts?" + "offset=" + offset + "&" + "categories=" + id;
+    let response = await fetchFromAPI(endpoint);
     setCategory(response);
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera

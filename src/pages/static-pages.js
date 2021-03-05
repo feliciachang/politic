@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Helmet } from "react-helmet";
+import { fetchFromAPI } from "../utils/api";
 
 const StaticPages = (props) => {
   const [title, setTitle] = useState(null);
@@ -11,10 +12,7 @@ const StaticPages = (props) => {
       let id = props.match.params.id;
       id = id.slice(3);
       try {
-        let response = await fetch(
-          "https://thepoliticbackend.org/wp-json/wp/v2/pages?slug=" + id
-        );
-        response = await response.json();
+        let response = await fetchFromAPI("pages?slug=" + id);
         console.log(response);
 
         // parse the HTML string into a DOM

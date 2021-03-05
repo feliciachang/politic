@@ -5,10 +5,10 @@ exports.handler = async function (event, context) {
   let responseData = {};
 
   // check if there was a payload sent in
-  if (event?.body) {
+  if (event.body) {
     const requestBody = JSON.parse(event.body);
     // this is the path sent in
-    const path = requestBody?.path;
+    const path = requestBody.path;
     // request the data from there
     try {
       const response = await axios.get(path);
