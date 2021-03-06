@@ -140,14 +140,14 @@ const NormalSection = ({ type, endpoint }) => {
             title={articles[1].title.rendered}
             subtitle={articles[1].excerpt.rendered}
             image={articles[1].jetpack_featured_media_url}
-            slug={articles[0].slug}
+            slug={articles[1].slug}
           />
           <Line />
           <StandardCard
             title={articles[2].title.rendered}
             subtitle={articles[2].excerpt.rendered}
             image={articles[2].jetpack_featured_media_url}
-            slug={articles[0].slug}
+            slug={articles[2].slug}
           />
         </Collapsible>
       )}
