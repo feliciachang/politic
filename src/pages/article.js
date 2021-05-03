@@ -13,6 +13,7 @@ import {
 } from "react-share";
 import styled from "styled-components";
 import { fetchFromAPI } from "../utils/api";
+import ad from "./house_of_naan.png";
 
 const ImgContainer = styled.div`
   position: relative;
@@ -54,6 +55,11 @@ const Article = (props) => {
 
   const redirectToAuthor = () => {
     history.push({ pathname: "/author/:id=" + author.id });
+  };
+
+  const redirectToAd = () => {
+    const win = window.open("https://houseofnaan.com/", "_blank");
+    win.focus();
   };
 
   return (
@@ -131,6 +137,11 @@ const Article = (props) => {
                 >
                   <EmailIcon size={32} round={true} />
                 </EmailShareButton>
+                <img
+                  style={{ marginTop: "25px", width: "125px" }}
+                  src={ad}
+                  onClick={redirectToAd}
+                />
               </div>
               <div style={{ marginLeft: "10%", maxWidth: "500px" }}>
                 <h1

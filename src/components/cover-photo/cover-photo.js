@@ -28,11 +28,12 @@ const CoverPhoto = ({ type }) => {
   useEffect(() => {
     const getCover = async () => {
       try {
-        let response = await fetchFromAPI("posts?per_page=1");
-        setImg(response[0].jetpack_featured_media_url);
-        setText(response[0].title.rendered);
-        setSlug(response[0].slug);
-        setExceprt(response[0].excerpt.rendered);
+        let response = await fetchFromAPI("posts?per_page=2");
+        console.log(response);
+        setImg(response[1].jetpack_featured_media_url);
+        setText(response[1].title.rendered);
+        setSlug(response[1].slug);
+        setExceprt(response[1].excerpt.rendered);
       } catch (error) {
         console.log(error);
       }
