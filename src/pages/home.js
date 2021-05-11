@@ -12,7 +12,7 @@ import Iframe from "react-iframe";
 import cover from "../assets/cover.png";
 import styled from "styled-components";
 import { fetchFromAPI } from "../utils/api";
-import ad from "./pataka.png";
+import HorizontalAd from "../components/ads/horizontal-ad";
 
 const Line = styled.div`
   border-left: 2px solid rgb(240, 240, 240);
@@ -44,6 +44,8 @@ const Collapsible = styled.div`
     flex-wrap: wrap;
   }
 `;
+
+const Ad = styled.div``;
 
 const Cover = () => {
   const [highlights, setHighlights] = useState(null);
@@ -241,11 +243,6 @@ const EditorPicks = ({ endpoint }) => {
 };
 
 const Home = () => {
-  const redirectToAd = () => {
-    const win = window.open("https://www.eatpataka.com/", "_blank");
-    win.focus();
-  };
-
   return (
     <div>
       <Helmet>
@@ -256,23 +253,7 @@ const Home = () => {
         />
       </Helmet>
       <Cover />
-      <div
-        style={{
-          marginTop: "25px",
-          marginLeft: "6%",
-          marginRight: "6%",
-        }}
-      >
-        <img
-          style={{
-            objectFit: "cover",
-            width: "100%",
-            height: "100%",
-          }}
-          src={ad}
-          onClick={redirectToAd}
-        />
-      </div>
+      <HorizontalAd />
       <EditorPicks endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2387" />
       <div>
         <NormalSection
