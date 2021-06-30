@@ -12,6 +12,7 @@
     height: 100%;
     text-align: right;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .sectiondivider {

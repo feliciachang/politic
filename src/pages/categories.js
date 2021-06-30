@@ -59,7 +59,7 @@ const Cover = ({ content }) => {
 
   return (
     <div
-      style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+      style={{ display: "flex", alignItems: "center" }}
       onClick={goToArticle}
     >
       <CategoryPhoto
