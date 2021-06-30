@@ -9,6 +9,7 @@ import CategoryCard from "../components/category-card";
 import ReactPaginate from "react-paginate";
 import styled from "styled-components";
 import { fetchFromAPI, fetchFromAPIWithHeader } from "../utils/api";
+import { parseUTC } from "../utils/helper";
 
 const Subtitle = styled.div`
   font-size: 20px;
@@ -20,10 +21,9 @@ const Expandable = styled.div`
   padding-left: 20px;
   max-width: 250px;
   width: 250px;
-  cursor: pointer;
 `;
 
-const TitleContentCard = ({ title, subtitle, text, slug }) => {
+const TitleContentCard = ({ title, subtitle, text, slug, date }) => {
   let history = useHistory();
   const goToArticle = () => {
     history.push({ pathname: "/" + slug });
@@ -32,13 +32,14 @@ const TitleContentCard = ({ title, subtitle, text, slug }) => {
   return (
     <Expandable onClick={goToArticle}>
       <Subtitle>{subtitle}</Subtitle>
-      <div
+      <div className="card-title"
         style={{
           fontFamily: "Roboto Slab",
           fontSize: "20px",
         }}
         dangerouslySetInnerHTML={{ __html: title }}
       />
+      <div className="card-subcontent">{parseUTC(date)}</div>
       <div
         style={{
           fontFamily: "Inter",
@@ -70,6 +71,7 @@ const Cover = ({ content }) => {
           title={content.title.rendered}
           text={content.excerpt.rendered}
           image={content.jetpack_featured_media_url}
+          date={content.date}
         />
       </div>
     </div>
@@ -80,7 +82,7 @@ const Content = ({ content, type, pageCount, handlePageClick }) => {
   console.log("pageCount", pageCount);
   return (
     <div
-      style={{ display: "flex", alignItems: "flex-start", cursor: "pointer" }}
+      style={{ display: "flex", alignItems: "flex-start" }}
     >
       <TitleCard title={type} />
       <div style={{ marginRight: "5%", marginLeft: "3%" }}>
@@ -92,6 +94,7 @@ const Content = ({ content, type, pageCount, handlePageClick }) => {
               text={c.excerpt.rendered}
               image={c.jetpack_featured_media_url}
               slug={c.slug}
+              date={c.date}
             />
           ))}
         </div>
@@ -142,6 +145,9 @@ const Categories = (props) => {
           break;
         case "4291":
           setType("Voices Of");
+          break;
+        case "949":
+          setType("Opinion");
           break;
         default:
           setType("The Sophist");

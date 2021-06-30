@@ -3,6 +3,7 @@ import { useHistory, withRouter } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./cp.module.css";
 import { fetchFromAPI } from "../../utils/api";
+import { parseUTC } from "../../utils/helper";
 
 export const CategoryPhoto = ({ image, slug }) => {
   const history = useHistory();
@@ -24,6 +25,7 @@ const CoverPhoto = ({ type }) => {
   const [text, setText] = useState();
   const [excerpt, setExceprt] = useState();
   const [slug, setSlug] = useState();
+  const [date, setDate] = useState()
 
   useEffect(() => {
     const getCover = async () => {
@@ -33,6 +35,7 @@ const CoverPhoto = ({ type }) => {
         setImg(response[1].jetpack_featured_media_url);
         setText(response[1].title.rendered);
         setSlug(response[1].slug);
+        setDate(response[1].date)
         setExceprt(response[1].excerpt.rendered);
       } catch (error) {
         console.log(error);
@@ -46,7 +49,7 @@ const CoverPhoto = ({ type }) => {
   };
 
   return (
-    <div onClick={goToArticle} style={{ cursor: "pointer", width: "100%" }}>
+    <div style={{ width: "100%" }}>
       {img === null ? (
         <SkeletonTheme color="#E5E5E5" highlightColor="#F2F2F2">
           <div>
@@ -73,13 +76,10 @@ const CoverPhoto = ({ type }) => {
             />
           </div>
           <div style={{ marginLeft: "5%", marginRight: "2%" }}>
-            <div
-              style={{
-                fontFamily: "Merriweather",
-                fontSize: "25px",
-              }}
+            <div onClick={goToArticle} className={styles.coverphototitle}
               dangerouslySetInnerHTML={{ __html: text }}
             />
+            <div className={styles.coverphotocardsubcontent}>{parseUTC(date)}</div>
             <div
               style={{
                 fontFamily: "Noto Sans JP",

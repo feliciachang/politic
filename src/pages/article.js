@@ -14,6 +14,7 @@ import {
 import styled from "styled-components";
 import { fetchFromAPI } from "../utils/api";
 import VerticalAd from "../components/ads/vertical-ad";
+import { parseUTC } from "../utils/helper"
 
 const ImgContainer = styled.div`
   position: relative;
@@ -35,6 +36,7 @@ const Article = (props) => {
   const history = useHistory();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getCover = async () => {
       let id = props.match.params.article;
       // id = id.slice(10);
@@ -43,7 +45,6 @@ const Article = (props) => {
         let response = await fetchFromAPI("posts?slug=" + id);
         let author = await fetchFromAPI("users/" + response[0].author);
         setAuthor(author);
-
         setArticle(response[0]);
       } catch (error) {
         //console.log(error);
@@ -151,6 +152,16 @@ const Article = (props) => {
                   }}
                 >
                   {author.name}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "Inter",
+                    lineHeight: "1.6",
+                    fontSize: "15px",
+                    fontWeight: "bold"
+                  }}
+                >
+                  {parseUTC(article.date)}
                 </div>
                 <br />
                 <div

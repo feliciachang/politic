@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { parseUTC } from "../../utils/helper";
 
 const ImgContainer = styled.div`
   padding-top: 10px;
@@ -9,7 +10,7 @@ const ImgContainer = styled.div`
   height: 100px;
 `;
 
-const CategoryCard = ({ title, text, image, slug }) => {
+const CategoryCard = ({ title, text, image, slug, date }) => {
   let history = useHistory();
   const goToArticle = () => {
     history.push({ pathname: "/" + slug });
@@ -21,19 +22,19 @@ const CategoryCard = ({ title, text, image, slug }) => {
         paddingLeft: "20px",
         display: "flex",
         marginBottom: "3%",
-        cursor: "pointer",
       }}
-      onClick={goToArticle}
     >
       <div style={{ paddingRight: "2%", width: "100%" }}>
         <hr />
-        <div
+        <div className="card-title"
           style={{
             fontFamily: "Roboto Slab",
             fontSize: "17px",
           }}
+          onClick={goToArticle}
           dangerouslySetInnerHTML={{ __html: title }}
         />
+        <div className="card-subcontent">{parseUTC(date)}</div>
         <div
           style={{
             fontFamily: "Inter",

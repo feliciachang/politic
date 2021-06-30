@@ -15,3 +15,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.card-title {
+    cursor: pointer;
+}
+
+.card-title:hover {
+    color: #2b8dbe
+}
+
+.card-subcontent {
+    font-family: "Noto Sans JP";
+    font-size: 10px;
+    margin-top: 4px;
+}

@@ -62,6 +62,7 @@ const AuthorPage = (props) => {
                 text={c.excerpt.rendered}
                 image={c.jetpack_featured_media_url}
                 slug={c.slug}
+                date={c.date}
               />
             ))}
           </div>

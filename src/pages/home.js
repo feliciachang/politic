@@ -54,7 +54,6 @@ const Cover = () => {
     const getHighlights = async () => {
       try {
         let response = await fetchFromAPI("posts?per_page=4");
-        console.log("hi", response);
         setHighlights(response);
       } catch (error) {
         //console.log(error);
@@ -84,18 +83,21 @@ const Cover = () => {
               subtitle=""
               text={highlights[1].excerpt.rendered}
               slug={highlights[1].slug}
+              date={highlights[1].date}
             />
             <ContentCard
               title={highlights[2].title.rendered}
               subtitle=""
               text={highlights[2].excerpt.rendered}
               slug={highlights[2].slug}
+              date={highlights[2].date}
             />
             <ContentCard
               title={highlights[3].title.rendered}
               subtitle=""
               text={highlights[3].excerpt.rendered}
               slug={highlights[3].slug}
+              date={highlights[3].date}
             />
           </div>
         )}
@@ -137,6 +139,7 @@ const NormalSection = ({ type, endpoint }) => {
             subtitle={articles[0].excerpt.rendered}
             image={articles[0]?.jetpack_featured_media_url}
             slug={articles[0].slug}
+            date={articles[0].date}
           />
           <Line />
           <StandardCard
@@ -144,6 +147,7 @@ const NormalSection = ({ type, endpoint }) => {
             subtitle={articles[1].excerpt.rendered}
             image={articles[1].jetpack_featured_media_url}
             slug={articles[1].slug}
+            date={articles[1].date}
           />
           <Line />
           <StandardCard
@@ -151,6 +155,7 @@ const NormalSection = ({ type, endpoint }) => {
             subtitle={articles[2].excerpt.rendered}
             image={articles[2].jetpack_featured_media_url}
             slug={articles[2].slug}
+            date={articles[2].date}
           />
         </Collapsible>
       )}
@@ -221,6 +226,7 @@ const EditorPicks = ({ endpoint }) => {
             subtitle={articles[0].excerpt.rendered}
             image={articles[0].jetpack_featured_media_url}
             slug={articles[0].slug}
+            date={articles[0].date}
           />
           <EditorLine />
           <EditorCard
@@ -228,6 +234,7 @@ const EditorPicks = ({ endpoint }) => {
             subtitle={articles[1].excerpt.rendered}
             image={articles[1].jetpack_featured_media_url}
             slug={articles[1].slug}
+            date={articles[1].date}
           />
           <EditorLine />
           <EditorCard
@@ -235,6 +242,7 @@ const EditorPicks = ({ endpoint }) => {
             subtitle={articles[2].excerpt.rendered}
             image={articles[2].jetpack_featured_media_url}
             slug={articles[2].slug}
+            date={articles[2].date}
           />
         </Collapsible>
       )}

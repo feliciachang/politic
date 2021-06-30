@@ -1,0 +1,32 @@
+.content-card-container {
+    padding: 10px;
+    padding-left: 20px;
+    max-width: 250px;
+    width: 250px;
+}
+
+.content-card-subtitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content-card-title {
+    font-family: "Roboto Slab";
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.content-card-title:hover {
+    color: #2b8dbe
+}
+
+.content-card-content {
+    font-family: "Inter";
+    font-size: 12px;
+}
+
+.content-card-subcontent {
+    font-family: "Inter";
+    font-size: 10px;
+    margin-top: 4px;
+}

@@ -233,7 +233,17 @@ export const OpinionNav = () => {
             fontSize: "13px",
           }}
         >
-          Opinion
+          <a
+            style={{
+              color: "black",
+              textDecoration: "none",
+              fontSize: "12px",
+              fontFamily: "Noto Sans JP",
+            }}
+              href="/category/:id=949"
+            >
+              Opinion
+            </a>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24"
