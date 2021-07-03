@@ -169,7 +169,7 @@ const Mag = () => {
       <Collapsible>
         <TitleCard title="Mag" />
         <Iframe
-          url="https://issuu.com/theyalepolitic/docs/issue_ii_-_final"
+          url="https://issuu.com/theyalepolitic/docs/issue_iv_2020-21"
           width="100%"
           height="450px"
           id="myId"
@@ -275,6 +275,14 @@ const Home = () => {
         <NormalSection
           type="World"
           endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=7"
+        />
+        <NormalSection
+          type="Opinion"
+          endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=949"
+        />
+        <NormalSection
+          type="Culture"
+          endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2853"
         />
         <Mag />
       </div>

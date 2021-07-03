@@ -243,18 +243,24 @@ const Footer = () => {
               <a
                 style={{ width: "40px" }}
                 href="https://www.facebook.com/theyalepolitic"
+                target="_blank"
+                rel="noopener noreferrer" 
               >
                 <img alt="fb" style={{ width: "100%" }} src={fb} />
               </a>
-              <div
+              <a
                 style={{ width: "40px" }}
                 href="https://www.instagram.com/theyalepolitic/"
+                target="_blank"
+                rel="noopener noreferrer" 
               >
                 <img alt="insta" style={{ width: "100%" }} src={insta} />
-              </div>
+              </a>
               <a
                 style={{ width: "40px" }}
                 href="https://twitter.com/yalepolitic"
+                target="_blank"
+                rel="noopener noreferrer" 
               >
                 <img alt="twitter" style={{ width: "100%" }} src={twitter} />
               </a>
