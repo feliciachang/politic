@@ -79,7 +79,6 @@ const Cover = ({ content }) => {
 };
 
 const Content = ({ content, type, pageCount, handlePageClick }) => {
-  console.log("pageCount", pageCount);
   return (
     <div
       style={{ display: "flex", alignItems: "flex-start" }}
@@ -126,7 +125,6 @@ const Categories = (props) => {
     const getCategory = async () => {
       let id = props.match.params.id;
       id = id.slice(4);
-      console.log(id);
       switch (id) {
         case "2317":
           setType("Local");

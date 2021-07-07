@@ -17,11 +17,14 @@ const Title = styled.div`
   }
 `;
 
-const TitleCard = ({ title, endpoint, top }) => {
+const TitleCard = ({ title, path, top }) => {
   let history = useHistory();
 
   const redirectTo = () => {
-    history.push({ pathname: "/category/" + endpoint });
+    if (path) {
+      history.push({ pathname: "/category/" + path });
+      window.scrollTo(0, 0);
+    }
   };
   return (
     <Title top={top} onClick={() => redirectTo()}>

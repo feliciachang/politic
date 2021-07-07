@@ -106,7 +106,7 @@ const Cover = () => {
   );
 };
 
-const NormalSection = ({ type, endpoint }) => {
+const NormalSection = ({ type, endpoint, path }) => {
   const [articles, setArticles] = useState(null);
 
   useEffect(() => {
@@ -133,7 +133,7 @@ const NormalSection = ({ type, endpoint }) => {
         </SkeletonTheme>
       ) : (
         <Collapsible>
-          <TitleCard title={type} endpoint={endpoint} />
+          <TitleCard title={type} path={path} />
           <StandardCard
             title={articles[0].title.rendered}
             subtitle={articles[0].excerpt.rendered}
@@ -267,22 +267,27 @@ const Home = () => {
         <NormalSection
           type="Local"
           endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2317"
+          path=":id=2317"
         />
         <NormalSection
           type="National"
           endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=3"
+          path=":id=3"
         />
         <NormalSection
           type="World"
           endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=7"
+          path=":id=7"
         />
         <NormalSection
           type="Opinion"
           endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=949"
+          path=":id=949"
         />
         <NormalSection
           type="Culture"
           endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2853"
+          path=":id=2853"
         />
         <Mag />
       </div>
