@@ -16,7 +16,7 @@ import HorizontalAd from "../components/ads/horizontal-ad";
 
 const Line = styled.div`
   border-left: 2px solid rgb(240, 240, 240);
-  height: 450px;
+  height: 360px;
   left: 50%;
   margin-left: -1px;
   top: 0;
@@ -262,7 +262,7 @@ const Home = () => {
       </Helmet>
       <Cover />
       <HorizontalAd />
-      <EditorPicks endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2387" />
+      {/* <EditorPicks endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2387" /> */}
       <div>
         <NormalSection
           type="Local"
@@ -298,11 +298,12 @@ const Home = () => {
           justifyContent: "center",
           alignItems: "center",
         }}
+        className="adsense-container"
       >
         <AdSense.Google
           client="ca-pub-6983293802174566"
           slot="2769088860"
-          style={{ height: "150px", width: "70%" }}
+          style={{ height: "50px", width: "70%" }}
         />
       </div>
     </div>

@@ -174,10 +174,12 @@ const Article = (props) => {
                 />
                 <br />
                 <br />
-                <AdSense.Google
-                  client="ca-pub-6983293802174566"
-                  slot="2769088860"
-                />
+                <div className="adsense-container">
+                  <AdSense.Google
+                    client="ca-pub-6983293802174566"
+                    slot="2769088860"
+                  />
+                </div>
               </div>
             </div>
           </div>

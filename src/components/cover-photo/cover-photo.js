@@ -13,7 +13,7 @@ export const CategoryPhoto = ({ image, slug }) => {
   };
 
   return (
-    <div className={styles.imgcontainer} onClick={() => goToArticle()}>
+    <div style={{ marginLeft: "5%" }} className={styles.imgcontainer} onClick={() => goToArticle()}>
       <img alt="" className={styles.img} src={image} />
     </div>
   );

@@ -81,6 +81,8 @@ export const AboutNav = () => {
                 fontSize: "12px",
                 fontFamily: "Noto Sans JP",
               }}
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://issuu.com/theyalepolitic"
             >
               Publications
@@ -100,7 +102,19 @@ export const AboutNav = () => {
               Our History
             </a>
           </Item>
-          <Item>Contact Us</Item>
+          <Item>
+            <a
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontFamily: "Noto Sans JP",
+              }}
+              href="mailto:thepolitic@yale.edu"
+            >
+              Contact Us
+            </a>
+          </Item>
         </DropdownContent>
       </Dropdown>
     </div>

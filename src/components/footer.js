@@ -202,7 +202,9 @@ const Footer = () => {
                 fontSize: "15px",
                 paddingBottom: "10px",
               }}
-              href="https://issuu.com/theyalepolitic/docs/issue_v_final"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://issuu.com/theyalepolitic"
             >
               Mag
             </a>
@@ -235,7 +237,7 @@ const Footer = () => {
                 fontSize: "15px",
                 paddingBottom: "10px",
               }}
-              href="/page/id=our-history"
+              href="mailto:thepolitic@yale.edu"
             >
               Contact Us
             </a>

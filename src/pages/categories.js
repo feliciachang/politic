@@ -66,7 +66,7 @@ const Cover = ({ content }) => {
         image={content.jetpack_featured_media_url}
         slug={content.slug.rendered}
       />
-      <div style={{ marginRight: "10%", marginLeft: "3%" }}>
+      <div style={{ marginRight: "15%", marginLeft: "3%" }}>
         <TitleContentCard
           title={content.title.rendered}
           text={content.excerpt.rendered}
@@ -212,7 +212,9 @@ const Categories = (props) => {
       )}
       <br />
       <br />
-      <AdSense.Google client="ca-pub-6983293802174566" slot="2769088860" />
+      <div className="adsense-container">
+        <AdSense.Google client="ca-pub-6983293802174566" slot="2769088860" />
+      </div>
     </div>
   );
 };
