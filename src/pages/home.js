@@ -14,6 +14,9 @@ import styled from "styled-components";
 import { fetchFromAPI } from "../utils/api";
 import HorizontalAd from "../components/ads/horizontal-ad";
 
+import pataka from "../components/ads/pataka.png";
+import macmillan from "../components/ads/globalist.jpg";
+
 const Line = styled.div`
   border-left: 2px solid rgb(240, 240, 240);
   height: 360px;
@@ -261,7 +264,8 @@ const Home = () => {
         />
       </Helmet>
       <Cover />
-      <HorizontalAd />
+      <HorizontalAd ad={macmillan} link="https://macmillan.yale.edu/"/>
+      <HorizontalAd ad={pataka} link="https://www.eatpataka.com/"/>
       {/* <EditorPicks endpoint="https://thepoliticbackend.org/wp-json/wp/v2/posts?categories=2387" /> */}
       <div>
         <NormalSection

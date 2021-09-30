@@ -1,9 +1,8 @@
 import React from "react";
-import ad from "./pataka.png";
 
-const HorizontalAd = () => {
+const HorizontalAd = ({ ad, link }) => {
   const redirectToAd = () => {
-    const win = window.open("https://www.eatpataka.com/", "_blank");
+    const win = window.open(link, "_blank");
     win.focus();
   };
 
@@ -13,6 +12,7 @@ const HorizontalAd = () => {
         marginTop: "25px",
         marginLeft: "6%",
         marginRight: "6%",
+        cursor: "pointer",
       }}
     >
       <img
